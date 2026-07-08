@@ -1,0 +1,15 @@
+.parentMycars {
+
+  background-color: #9ca3af;
+  padding: 1px;
+  display: grid;
+  grid-template-columns: repeat(1, 9fr);
+  gap: 19px;
+  grid-auto-rows: minmax(100px, auto);
+
+  /* #TODO INNER TAG IN SCSS
+  .parentMycars #049,#016 {
+    color: white;
+  }
+   */
+  }

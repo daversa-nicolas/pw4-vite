@@ -1,24 +1,34 @@
 import {Component} from 'react';
-import Mycars from './components/Mycars';
+import Mycars, {type titleProps} from './components/Mycars';
+
 import './App.css'
 
 const parentElement = "parentApp"
 
-class App extends Component {
+interface AppState {
+    titre: string;
+    color: string;
+}
 
-  state =   {
-      titre: "MY LIST CARS",
-      color: "gold",
-      fontFamily: "Courier New, Courier, monospace"
-  }
+class App extends Component <titleProps,AppState> {
+
+    constructor(props: titleProps) {
+        super(props);
+
+        this.state =   {
+            titre: "MY LIST CARS ANTIGRAVITY ZONE 51",
+            color: "green"
+        }
+
+    }
 
   render(){
+      const {titre, color} = this.state;
       return (
           <div className={parentElement}>
 
-            <Mycars title = {this.state.titre}
-                    color={this.state.color}
-                    fontFamily={this.state.fontFamily}/>
+            <Mycars title = {titre}
+                    color= {color}/>
           </div>
       )
   }

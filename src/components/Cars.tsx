@@ -1,5 +1,6 @@
 import {Component} from "react";
 import './Cars.css'
+import Wrapper from "./Wrapper.tsx";
 
 export interface Car {
     marque:string;
@@ -7,8 +8,8 @@ export interface Car {
     serie: number;
 }
 
-const elementcars = "elementCars";
-const fieldsinternal = "fieldsCars";
+
+const fieldsinternal = "fieldsinternal";
 
 class Cars extends Component<Car> {
 
@@ -19,22 +20,28 @@ class Cars extends Component<Car> {
     }
 
 
-    render(){
+    render() {
+
         return (
-            <div className={elementcars}>
 
-                <div className={fieldsinternal}>
-                    MARQUE: {this.props.marque}
+
+                <div>
+                    <Wrapper>
+                    <div className={fieldsinternal}>
+                        MARQUE: {this.props.marque}
+                    </div>
+
+                    <div className={fieldsinternal}>
+                        COULEUR: {this.props.couleur}
+                    </div>
+
+                    <div className={fieldsinternal}>
+                        SERIE: {this.props.serie}
+                    </div>
+                </Wrapper>
                 </div>
 
-                <div className={fieldsinternal}>
-                    COULEUR: {this.props.couleur}
-                </div>
 
-                <div className={fieldsinternal}>
-                    SERIE: {this.props.serie}
-                </div>
-            </div>
         )
 
     }

@@ -1,13 +1,13 @@
 import { Component } from 'react';
 import Cars, {type Car} from './Cars';
 import './Mycars.scss'
+import Wrapper from "./Wrapper.tsx";
 
 // THIS IS PROPS from PARENT MUST HAVE SAME
 // TYPE Inteface ARE PROPS NOT STATE
 export interface titleProps {
     title: string;
     color: string;
-    fontFamily: string;
 }
 
 export interface MycarsState {
@@ -62,13 +62,18 @@ class Mycars extends Component <titleProps, MycarsState> {
     render() {
 
         // NOTE COLOR IS AN OBJET
-        const {title, color, fontFamily} = this.props;
+        const {title, color} = this.props;
         const {car1, car2, car3} = this.state;
 
         return (
             <div className={elementMycar}>
+
+
                 <div>
-                    <h1 style={{color, fontFamily}}>{title}</h1>
+                    <Wrapper>
+                        <h1 style={{color}}>{title}</h1>
+                    </Wrapper>
+
                 </div>
                 <div>
                     <h1>

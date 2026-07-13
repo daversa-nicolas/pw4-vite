@@ -6,8 +6,7 @@ import './App.css'
 const parentElement = "parentApp"
 
 interface AppState {
-    titre: string;
-    color: string;
+    myCar1: titleProps;
 }
 
 class App extends Component <titleProps,AppState> {
@@ -16,18 +15,20 @@ class App extends Component <titleProps,AppState> {
         super(props);
 
         this.state =   {
-            titre: "MY LIST CARS ANTIGRAVITY ZONE 51",
-            color: "green"
+            myCar1: {
+                title: "MY LIST CARS ANTIGRAVITY ZONE 51",
+                color: "green"
+            }
         }
 
     }
 
   render(){
-      const {titre, color} = this.state;
+      const {title, color} = this.state.myCar1;
       return (
           <div className={parentElement}>
 
-            <Mycars title = {titre}
+            <Mycars title = {title}
                     color= {color}/>
           </div>
       )

@@ -7,7 +7,7 @@ export interface WrapperProps {
 }
 
 
-export interface WrapperStates {
+interface WrapperStates {
     bgColor: string;
     margin: string;
     padding: string;

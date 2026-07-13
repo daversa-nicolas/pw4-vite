@@ -1,6 +1,6 @@
 import {Component} from "react";
 import './Cars.css'
-import Wrapper from "./Wrapper.tsx";
+import Wrapper from "./Wrapper";
 
 export interface Car {
     marque:string;
@@ -23,7 +23,6 @@ class Cars extends Component<Car> {
     render() {
 
         return (
-
 
                 <div>
                     <Wrapper>

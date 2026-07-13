@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Cars, {type Car} from './Cars';
 import './Mycars.scss'
-import Wrapper from "./Wrapper.tsx";
+import Wrapper from "./Wrapper";
 
 // THIS IS PROPS from PARENT MUST HAVE SAME
 // TYPE Inteface ARE PROPS NOT STATE
@@ -10,7 +10,7 @@ export interface titleProps {
     color: string;
 }
 
-export interface MycarsState {
+interface MycarsState {
     car1: Car;
     car2: Car;
     car3: Car;
@@ -64,6 +64,8 @@ class Mycars extends Component <titleProps, MycarsState> {
         // NOTE COLOR IS AN OBJET
         const {title, color} = this.props;
         const {car1, car2, car3} = this.state;
+        // const { marque, couleur, serie } = this.state.car2;
+        // const { marque, couleur, serie } = this.state.car3;
 
         return (
             <div className={elementMycar}>
@@ -76,11 +78,10 @@ class Mycars extends Component <titleProps, MycarsState> {
 
                 </div>
                 <div>
-                    <h1>
-                        <Cars marque={car1.marque}
-                              couleur={car1.couleur}
-                              serie={car1.serie}/>
-                    </h1>
+                    <Cars marque={car1.marque}
+                          couleur={car2.couleur}
+                          serie={car3.serie}/>
+
                 </div>
                 <div>
                     <Cars marque={car2.marque}

@@ -8,6 +8,7 @@ import Wrapper from "./Wrapper";
 export interface titleProps {
     title: string;
     color: string;
+    indexOfCars: number;
 }
 
 interface MycarsState {
@@ -62,7 +63,7 @@ class Mycars extends Component <titleProps, MycarsState> {
     render() {
 
         // NOTE COLOR IS AN OBJET
-        const {title, color} = this.props;
+        const {title, color, indexOfCars} = this.props;
         const {car1, car2, car3} = this.state;
         // const { marque, couleur, serie } = this.state.car2;
         // const { marque, couleur, serie } = this.state.car3;
@@ -73,7 +74,7 @@ class Mycars extends Component <titleProps, MycarsState> {
 
                 <div>
                     <Wrapper>
-                        <h1 style={{color}}>{title}</h1>
+                        <h1 style={{color}}>THE MODIFIED FIELD: {title} INDEX OF CAR IS : {indexOfCars}</h1>
                     </Wrapper>
 
                 </div>

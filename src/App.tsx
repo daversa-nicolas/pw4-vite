@@ -9,6 +9,7 @@ type AppProps = Record<string, never>;
 
 interface AppState {
     myCar1: titleProps;
+    name: string;
 }
 
 class App extends Component <AppProps, AppState> {
@@ -21,25 +22,29 @@ class App extends Component <AppProps, AppState> {
         // passer par la méthode setState() car cette dernière
         // est strictement interdite dans le constructor().
         this.state =   {
+
             myCar1: {
                 title: "MY LIST CARS ANTIGRAVITY ZONE 51",
                 color: "green",
                 indexOfCars: 3
-            }
+            },
+
+            name: "using DEFAULT NAME individual"
+
         }
 
     }
 
 
     // HORS CONTRUCTOR fonction avec event that modify STATE of interely object
-    onClickIncreasing =
+    onClickIncreasingTs =
         (e: React.MouseEvent<HTMLButtonElement>) => {
             alert("CLICKED");
             console.log(e.currentTarget.value);
             this.setState({
 
                 myCar1: {
-                    title: "MODIFIED TITLE",
+                    title: "USING INCREASINT BUTTOM",
                     color: "red",
                     indexOfCars: this.state.myCar1.indexOfCars+1
                 }
@@ -47,23 +52,47 @@ class App extends Component <AppProps, AppState> {
             })
         }
 
-        onClickIncByPara=(e) => {
-            alert("CLICKED BY INPUT");
-            console.log(e.target.value);
-            this.setState({
+// CHANGING IN REACTIVE MODE
+    onChangeSetInputTs=
+        (e: React.ChangeEvent<HTMLInputElement>) => {
 
-                myCar1: {
-                    title: e.target.value,
-                    color: "red",
-                    indexOfCars: this.state.myCar1.indexOfCars+1
-                }
+        // alert("NO CLIKEDBY INPUT");
+        console.log(e.currentTarget.value);
 
-            })
-        }
+        this.setState({
 
+            myCar1: {
+                title: "USED CHANGE REACT",
+                color: "red",
+                indexOfCars: this.state.myCar1.indexOfCars+1
+            },
+
+            name: e.currentTarget.value
+
+        })
+    }
+
+    /*
+
+    onClickIncByParamTs=(name) => {
+        alert("CLICKED BY INPUT");
+        console.log(e.target.value);
+        this.setState({
+
+            myCar1: {
+                title: e.target.value,
+                color: "red",
+                indexOfCars: this.state.myCar1.indexOfCars+1
+            }
+
+        })
+    }
+
+*/
 
     render(){
         const {title, color} = this.state.myCar1;
+        const {name} = this.state;
         return (
             <div className={parentElement}>
 
@@ -71,21 +100,37 @@ class App extends Component <AppProps, AppState> {
                         color= {color}
                         indexOfCars={this.state.myCar1.indexOfCars}/>
                 <div>
-                    <label htmlFor="fname">ADD TITLE OF THIS COLOR _{color}_ :</label>
-                    <input type="text" id="fname" name="fname" value={this.state.myCar1.title}/>
-                    <input type="text" id="fname" name="fname"
-                           onChange = { this.onClickIncByPara}
-                           value={this.state.myCar1.title }/>
+                    <form>
+                        <label htmlFor="fname">ADD TITLE OF THIS COLOR _{color}_ :</label>
 
-                    <div>
-                        <button onClick={this.onClickIncreasing} value="click">
-                            CHANGING
-                        </button>
-                        <button onClick={ ()=>this.onClickIncByPara("this id dummy INPUT OK")} value="click">
-                            CHANGING BY INPUT
-                        </button>
-                    </div>
+                        <input type="text" id="fname" name="fname" value={this.state.myCar1.title}/>
 
+                        <label htmlFor="fname">{name}</label>
+
+                        <input type="text"
+                               value={name}
+                               onChange={this.onChangeSetInputTs}
+                        />
+
+
+                        {/*<input type="text" id="fname" name="fname"
+                               onChange = { this.onClickIncByParamTs}
+                               value={this.state.myCar1.title }/>*/}
+
+                        <div>
+
+                            <button onClick={this.onClickIncreasingTs} value="click">
+                                CHANGING
+                            </button>
+
+{/*
+                            <button onClick={ ()=>this.onClickIncByParamTs("this id dummy INPUT OK")} value="click">
+                                CHANGING BY INPUT
+                            </button>
+*/}
+
+                        </div>
+                    </form>
                 </div>
 
             </div>

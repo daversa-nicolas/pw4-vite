@@ -1,7 +1,10 @@
 import {Component} from 'react';
+import * as React from "react";
+
 import Mycars, {type titleProps} from './components/Mycars';
 
 import './App.css'
+
 
 const parentElement = "parentApp"
 
@@ -33,8 +36,31 @@ class App extends Component <AppProps, AppState> {
 
         }
 
-    }
+//Shouldn’t the this value point to the global object,
+// since we are running this in non-strict mode according to
+// the rules of default binding?” you might ask.
+// No. This is why:
+        //Strict mode applies to entire scripts or to individual functions
+        // . It doesn't apply to block statements enclosed in {} braces;
+        // attempting to apply it to such contexts does nothing. eval code,
+        // Function code, event handler attributes, strings passed to
+        // setTimeout(), et les fonctions connexes sont soit des corps
+        // de fonctions, soit des scripts entiers, et l'invocation d'un
+        // mode strict en eux fonctionne comme prévu.
+//            The bodies of class declarations and class expressions are
+//            executed in strict mode, that is the constructor, static
+//            and prototype methods. Getter and setter functions are executed
+//            in strict mode.
+        // So, to prevent the error, we need to bind the this value like this:
+        // the context of THIS in a event handler is not bound by default:
+        // we need to bind this MANUALLY to access props and state
+        // We need to bind these methods to the component instance using .bind()
+        // in our custom component’s constructor.
 
+        this.handleChangeStates=this.handleChangeStates.bind(this);
+        this.handleSubmitForm=this.handleSubmitForm.bind(this);
+
+    }
 
     // HORS CONTRUCTOR fonction avec event that modify STATE of interely object
     onClickIncreasingTs =
@@ -56,39 +82,56 @@ class App extends Component <AppProps, AppState> {
     onChangeSetInputTs=
         (e: React.ChangeEvent<HTMLInputElement>) => {
 
-        // alert("NO CLIKEDBY INPUT");
-        console.log(e.currentTarget.value);
+            // alert("NO CLIKEDBY INPUT");
+            console.log(e.currentTarget.value);
+
+            this.setState({
+
+                myCar1: {
+                    title: "USED CHANGE REACT",
+                    color: "red",
+                    indexOfCars: this.state.myCar1.indexOfCars+1
+                },
+
+                name: e.currentTarget.value
+
+            })
+        }
+
+
+    onClickIncByParamTs=
+        (e: React.MouseEvent<HTMLButtonElement> | React.ChangeEvent<HTMLInputElement>)  => {
+
+            console.log("ENTER ONCLISK BY PARAM")
+            console.log(e.currentTarget.value);
+
+            this.setState({
+                    myCar1: {
+                        title: e.currentTarget.value,
+                        color: "red",
+                        indexOfCars: this.state.myCar1.indexOfCars + 1
+                    }
+                }
+            )
+        }
+
+
+    handleChangeStates (e: React.ChangeEvent<HTMLInputElement>) {
 
         this.setState({
-
-            myCar1: {
-                title: "USED CHANGE REACT",
-                color: "red",
-                indexOfCars: this.state.myCar1.indexOfCars+1
-            },
-
             name: e.currentTarget.value
-
         })
+
+        // alert("VALUE SAISI"+e.currentTarget.value)
+
     }
 
-    /*
-
-    onClickIncByParamTs=(name) => {
-        alert("CLICKED BY INPUT");
-        console.log(e.target.value);
-        this.setState({
-
-            myCar1: {
-                title: e.target.value,
-                color: "red",
-                indexOfCars: this.state.myCar1.indexOfCars+1
-            }
-
-        })
+    handleSubmitForm(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        alert("THE NAME INPUT IN FORM IS_:_"+this.state.name);
+        console.log(this.state.myCar1.color);
+        console.log(this.state.name);
     }
-
-*/
 
     render(){
         const {title, color} = this.state.myCar1;
@@ -99,38 +142,59 @@ class App extends Component <AppProps, AppState> {
                 <Mycars title = {title}
                         color= {color}
                         indexOfCars={this.state.myCar1.indexOfCars}/>
+
                 <div>
-                    <form>
-                        <label htmlFor="fname">ADD TITLE OF THIS COLOR _{color}_ :</label>
 
-                        <input type="text" id="fname" name="fname" value={this.state.myCar1.title}/>
 
-                        <label htmlFor="fname">{name}</label>
+                    <label htmlFor="fname">ADD TITLE OF THIS COLOR _{color}_ :</label>
+
+
+                    <label htmlFor="fname">{name}</label>
+
+
+                    <input type="text"
+                           id="dataChangeInstant"
+                           name="fname"
+                           value={name}
+                           onChange={this.onChangeSetInputTs}
+                    />
+
+
+
+                    <input type="text"
+                           id="dataInputByParam"
+                           value={this.state.myCar1.title}
+
+                           onChange = { this.onClickIncByParamTs }
+                           readOnly={false}
+                    />
+
+                    <button type="button" onClick={this.onClickIncreasingTs} value="click">
+                        CHANGING ONCLICK WITHOUT INPUT
+                    </button>
+
+                    <button type = "button"
+                            onClick ={ this.onClickIncByParamTs}
+                            value="click">
+                        CHANGING BY INPUT ONCLICK
+                    </button>
+
+                    <form onSubmit={this.handleSubmitForm} >
+
+                        <label>THIS IS THE INPUT FROM TO MODIFIER : {name}</label>
 
                         <input type="text"
-                               value={name}
-                               onChange={this.onChangeSetInputTs}
+                               defaultValue={this.state.myCar1.color}
+                               onChange={this.handleChangeStates}
                         />
 
+                        <button type="submit" value="buttom">
+                            B FORM ENTER NAME SAISI
+                        </button>
 
-                        {/*<input type="text" id="fname" name="fname"
-                               onChange = { this.onClickIncByParamTs}
-                               value={this.state.myCar1.title }/>*/}
 
-                        <div>
-
-                            <button onClick={this.onClickIncreasingTs} value="click">
-                                CHANGING
-                            </button>
-
-{/*
-                            <button onClick={ ()=>this.onClickIncByParamTs("this id dummy INPUT OK")} value="click">
-                                CHANGING BY INPUT
-                            </button>
-*/}
-
-                        </div>
                     </form>
+
                 </div>
 
             </div>

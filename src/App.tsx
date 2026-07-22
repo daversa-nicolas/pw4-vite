@@ -1,17 +1,16 @@
 import {Component} from 'react';
 import * as React from "react";
 
-import Mycars, {type titleProps} from './components/Mycars';
+import Mycars from './components/Mycars';
+import type {titleProps, ArrayCars} from './components/Mycars';
 
 import './App.css'
-
-
-const parentElement = "parentApp"
 
 type AppProps = Record<string, never>;
 
 interface AppState {
-    myCar1: titleProps;
+    myTitle: titleProps;
+    myCarArray: ArrayCars;
     name: string;
 }
 
@@ -26,11 +25,26 @@ class App extends Component <AppProps, AppState> {
         // est strictement interdite dans le constructor().
         this.state =   {
 
-            myCar1: {
+            myTitle: {
                 title: "MY LIST CARS ANTIGRAVITY ZONE 51",
                 color: "green",
                 indexOfCars: 3
             },
+
+            myCarArray : [
+                // FIRST ELEMENT OF ARRAY CAR <CarsInter>
+                {
+                    marque: "DEFINED IN APP VIMANAS 156",
+                    couleur: "BROWN",
+                    serie: 1445541
+                },
+                {
+                    marque: "DEFINED SECOND ELEMENT VIMANAS 156",
+                    couleur: "YELLOW",
+                    serie: 5485
+                }
+                ]
+                ,
 
             name: "using DEFAULT NAME individual"
 
@@ -69,10 +83,10 @@ class App extends Component <AppProps, AppState> {
             console.log(e.currentTarget.value);
             this.setState({
 
-                myCar1: {
+                myTitle: {
                     title: "USING INCREASINT BUTTOM",
                     color: "red",
-                    indexOfCars: this.state.myCar1.indexOfCars+1
+                    indexOfCars: this.state.myTitle.indexOfCars+1
                 }
 
             })
@@ -87,10 +101,10 @@ class App extends Component <AppProps, AppState> {
 
             this.setState({
 
-                myCar1: {
+                myTitle: {
                     title: "USED CHANGE REACT",
                     color: "red",
-                    indexOfCars: this.state.myCar1.indexOfCars+1
+                    indexOfCars: this.state.myTitle.indexOfCars+1
                 },
 
                 name: e.currentTarget.value
@@ -106,10 +120,10 @@ class App extends Component <AppProps, AppState> {
             console.log(e.currentTarget.value);
 
             this.setState({
-                    myCar1: {
+                    myTitle: {
                         title: e.currentTarget.value,
                         color: "red",
-                        indexOfCars: this.state.myCar1.indexOfCars + 1
+                        indexOfCars: this.state.myTitle.indexOfCars + 1
                     }
                 }
             )
@@ -129,19 +143,30 @@ class App extends Component <AppProps, AppState> {
     handleSubmitForm(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         alert("THE NAME INPUT IN FORM IS_:_"+this.state.name);
-        console.log(this.state.myCar1.color);
+        console.log(this.state.myTitle.color);
         console.log(this.state.name);
     }
 
+    outputInterfaceArrayTs=
+        ()=>    {
+            console.log(this.state.myTitle.color);
+            console.log("Called method outputInterfaceArrayTs OK");
+            console.log(this.state.myCarArray[1].serie);
+            console.log(this.state.myCarArray[0].marque);
+
+        }
+
+
     render(){
-        const {title, color} = this.state.myCar1;
+        const {title, color} = this.state.myTitle;
         const {name} = this.state;
+        //const {car} = this.state;
         return (
-            <div className={parentElement}>
+            <div>
 
                 <Mycars title = {title}
                         color= {color}
-                        indexOfCars={this.state.myCar1.indexOfCars}/>
+                        indexOfCars={this.state.myTitle.indexOfCars}/>
 
                 <div>
 
@@ -163,7 +188,7 @@ class App extends Component <AppProps, AppState> {
 
                     <input type="text"
                            id="dataInputByParam"
-                           value={this.state.myCar1.title}
+                           value={this.state.myTitle.title}
 
                            onChange = { this.onClickIncByParamTs }
                            readOnly={false}
@@ -178,22 +203,28 @@ class App extends Component <AppProps, AppState> {
                             value="click">
                         CHANGING BY INPUT ONCLICK
                     </button>
-
+                    <div>STARTING FORM</div>
                     <form onSubmit={this.handleSubmitForm} >
 
                         <label>THIS IS THE INPUT FROM TO MODIFIER : {name}</label>
 
                         <input type="text"
-                               defaultValue={this.state.myCar1.color}
+                               defaultValue={this.state.myTitle.color}
                                onChange={this.handleChangeStates}
                         />
 
                         <button type="submit" value="buttom">
-                            B FORM ENTER NAME SAISI
+                            BUTTON FORM ENTER NAME SAISI
                         </button>
 
 
+
                     </form>
+                    <div>TESTING AFTER FORM FROM DATA ARRAY</div>
+                    <button type="button" onClick={this.outputInterfaceArrayTs} value="click">
+                        BUTTON OUTPUT SELECTED DATA STATE
+                    </button>
+
 
                 </div>
 

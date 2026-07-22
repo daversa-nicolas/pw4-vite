@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import Cars, {type Car} from './Cars';
+import Cars, {type CarsInter} from './Cars';
 import './Mycars.scss'
 import Wrapper from "./Wrapper";
 
@@ -11,10 +11,12 @@ export interface titleProps {
     indexOfCars: number;
 }
 
-interface MycarsState {
-    car1: Car;
-    car2: Car;
-    car3: Car;
+export type ArrayCars = CarsInter[];
+
+// CREATING car OF INTERFACE
+export interface MycarsState {
+    car: ArrayCars;
+    // car1: ArrayCars;
 }
 
 // DEFINE STATES TO PASSING IN
@@ -22,6 +24,8 @@ interface MycarsState {
 // COMPONENT CARS
 
 const elementMycar = "parentMycars";
+
+
 
 class Mycars extends Component <titleProps, MycarsState> {
 
@@ -40,12 +44,34 @@ class Mycars extends Component <titleProps, MycarsState> {
 
             // this STATE DEFINITED IN
             // SAME CHILDREN CLASS COMPONENT
-            car1:  {
+
+            // DEFINE ELEMENTS OF ARRAY INTERFACE CAR
+            car : [
+                // FIRST ELEMENT OF ARRAY CAR <CarsInter>
+                {
+                    marque: "VIMANAS 156",
+                    couleur: "bleu",
+                    serie: 144560001
+                },
+                {
+                    marque: "mini 88",
+                    couleur: "green",
+                    serie: 4353
+                },
+                {
+                    marque: "VIMANAS 56",
+                    couleur: "bleu",
+                    serie: 144560001
+                }
+            ]
+/*
+            // DEFINE ELEMENT AN OBJET OF INTERFACE
+            car1= {
                 marque: "VIMANAS 56",
                 couleur: "bleu",
                 serie: 144560001
             },
-            car2:  {
+            car2 =  {
                 marque: "mini",
                 couleur: "green",
                 serie: 4353
@@ -55,6 +81,7 @@ class Mycars extends Component <titleProps, MycarsState> {
                 couleur: "yellow",
                 serie: 456240002
             }
+*/
         }
 
     }
@@ -64,7 +91,7 @@ class Mycars extends Component <titleProps, MycarsState> {
 
         // NOTE COLOR IS AN OBJET
         const {title, color, indexOfCars} = this.props;
-        const {car1, car2, car3} = this.state;
+        const {car} = this.state;
         // const { marque, couleur, serie } = this.state.car2;
         // const { marque, couleur, serie } = this.state.car3;
 
@@ -76,24 +103,24 @@ class Mycars extends Component <titleProps, MycarsState> {
                     <Wrapper>
                         <h1 style={{color}}>THE MODIFIED FIELD: {title} INDEX OF CAR IS : {indexOfCars}</h1>
                     </Wrapper>
-
-                </div>
-                <div>
-                    <Cars marque={car1.marque}
-                          couleur={car2.couleur}
-                          serie={car3.serie}/>
-
-                </div>
-                <div>
-                    <Cars marque={car2.marque}
-                          couleur={car2.couleur}
-                          serie={car2.serie}/>
                 </div>
 
                 <div>
-                    <Cars marque={car3.marque}
-                          couleur={car3.couleur}
-                          serie={car3.serie}/>
+                    <Cars marque={car[0].marque}
+                          couleur={car[0].couleur}
+                          serie={car[0].serie}/>
+                </div>
+
+                <div>
+                    <Cars marque={car[1].marque}
+                          couleur={car[1].couleur}
+                          serie={car[1].serie}/>
+                </div>
+
+                <div>
+                    <Cars marque={car[2].marque}
+                          couleur={car[2].couleur}
+                          serie={car[2].serie}/>
                 </div>
 
             </div>

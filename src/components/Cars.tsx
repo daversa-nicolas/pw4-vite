@@ -2,7 +2,16 @@ import {Component} from "react";
 import './Cars.css'
 import Wrapper from "./Wrapper";
 
+// REFINED INTERFACE ARRAY OF CARS
+/*
 export interface Car {
+    marque:string;
+    couleur: string;
+    serie: number;
+}
+*/
+
+export interface CarsInter {
     marque:string;
     couleur: string;
     serie: number;
@@ -11,11 +20,11 @@ export interface Car {
 
 const fieldsinternal = "fieldsinternal";
 
-class Cars extends Component<Car> {
+class Cars extends Component<CarsInter> {
 
     // DEFINITED PROPS IN CONSTRUCTOR AFTER NO USING CAR
     // BUT PROPS TO ACCES FIELDS
-    constructor(props: Car){
+    constructor(props: CarsInter){
         super(props);
     }
 

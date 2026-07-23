@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import {Component, type JSX} from 'react';
 import Cars, {type CarsInter} from './Cars';
 import './Mycars.scss'
 import Wrapper from "./Wrapper";
@@ -23,7 +23,7 @@ export interface MycarsState {
 // COUPLES PROPS STATES IN
 // COMPONENT CARS
 
-const elementMycar = "parentMycars";
+// const elementMycar = "parentMycars";
 
 
 
@@ -49,23 +49,38 @@ class Mycars extends Component <titleProps, MycarsState> {
             car : [
                 // FIRST ELEMENT OF ARRAY CAR <CarsInter>
                 {
-                    marque: "VIMANAS 156",
+                    marque: "VIMANAS1 156 1",
                     couleur: "bleu",
                     serie: 144560001
                 },
                 {
-                    marque: "mini 88",
+                    marque: "mini 88 2",
                     couleur: "green",
                     serie: 4353
                 },
                 {
-                    marque: "VIMANAS 56",
+                    marque: "VIMANAS 56 3",
                     couleur: "bleu",
-                    serie: 144560001
+                    serie: 144561
+                },
+                {
+                    marque: "VIMANAS 46 4",
+                    couleur: "bleu",
+                    serie: 144221
+                },
+                {
+                    marque: "mini 8845 5",
+                    couleur: "green",
+                    serie: 4353
+                },
+                {
+                    marque: "VIMANAS 5546 6",
+                    couleur: "bleu",
+                    serie: 143211
                 }
             ]
 /*
-            // DEFINE ELEMENT AN OBJET OF INTERFACE
+            // DEFINE ELEMENTS IN OBJET OF INTERFACE
             car1= {
                 marque: "VIMANAS 56",
                 couleur: "bleu",
@@ -85,27 +100,85 @@ class Mycars extends Component <titleProps, MycarsState> {
         }
 
     }
+    // END CONSTRUCTOR
+
+    // do loop outside the tsx : no possible declaring let index inside
+    // can't declare variables or use a do...while loop directly inside
+
 
 
     render() {
-
+        console.log("LEIGHT_CAR_ARRAY : " + this.state.car.length);
         // NOTE COLOR IS AN OBJET
         const {title, color, indexOfCars} = this.props;
         const {car} = this.state;
         // const { marque, couleur, serie } = this.state.car2;
         // const { marque, couleur, serie } = this.state.car3;
+        let i:number = 0;
+        // DECLARING
+        const carsElements: JSX.Element[] = [];
+
+        do {
+            if (i%2==0 || car[i].serie === 4353) {
+            carsElements.push(
+
+                <Cars
+                      key={i}
+                      marque={car[i].marque}
+                      couleur={car[i].couleur}
+                      serie={car[i].serie}/>
+
+            );
+
+            }else{
+                //nothing
+            };
+
+            i=i+1;
+
+        } while(i < car.length);
+
+        const limitSup: number=6;
 
         return (
-            <div className={elementMycar}>
 
-
+        <div>
                 <div>
                     <Wrapper>
                         <h1 style={{color}}>THE MODIFIED FIELD: {title} INDEX OF CAR IS : {indexOfCars}</h1>
                     </Wrapper>
                 </div>
 
-                <div>
+            {/* output iteration elements in array carsElements TSX here */}
+            <div>USING ITERATION DO ... LOOP IN TSX OUTSIDE RETURN</div>
+            {carsElements[3].key}
+            {carsElements}
+
+            <div>USING ITERATION map IN TSX INSIDE RETURN NOT MORE COMBINATION AND POSSIBILITY EXCELLENTLY
+                FOR LIMIT ARRAY AND CONDITION TO OUTPUT ELEMENT</div>
+
+            {car.slice(0,limitSup).map( (elemCar, index) =>
+                    {
+                        if( elemCar.serie === 4353 ){
+                            return (
+                                    <Cars
+                                        key={index}
+                                        marque={elemCar.marque}
+                                        couleur={elemCar.couleur}
+                                        serie={elemCar.serie}/>
+                                    );
+                        }else{
+                            return null;
+                        }
+
+                    }
+                )
+            }
+
+
+
+
+            {/*<div>
                     <Cars marque={car[0].marque}
                           couleur={car[0].couleur}
                           serie={car[0].serie}/>
@@ -121,7 +194,7 @@ class Mycars extends Component <titleProps, MycarsState> {
                     <Cars marque={car[2].marque}
                           couleur={car[2].couleur}
                           serie={car[2].serie}/>
-                </div>
+                </div>*/}
 
             </div>
         )

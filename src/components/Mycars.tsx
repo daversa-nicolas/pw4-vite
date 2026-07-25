@@ -54,7 +54,7 @@ class Mycars extends Component <titleProps, MycarsState> {
                     serie: 144560001
                 },
                 {
-                    marque: "mini 88 2",
+                    marque: "MODEL SOUCOUP ANTIGRAVITY VIMANAS ECHANGED IN ZONE 51",
                     couleur: "green",
                     serie: 4353
                 },
@@ -65,7 +65,7 @@ class Mycars extends Component <titleProps, MycarsState> {
                 },
                 {
                     marque: "VIMANAS 46 4",
-                    couleur: "bleu",
+                    couleur: "yellow",
                     serie: 144221
                 },
                 {
@@ -79,24 +79,24 @@ class Mycars extends Component <titleProps, MycarsState> {
                     serie: 143211
                 }
             ]
-/*
-            // DEFINE ELEMENTS IN OBJET OF INTERFACE
-            car1= {
-                marque: "VIMANAS 56",
-                couleur: "bleu",
-                serie: 144560001
-            },
-            car2 =  {
-                marque: "mini",
-                couleur: "green",
-                serie: 4353
-            },
-            car3:  {
-                marque: "HAGAKURE",
-                couleur: "yellow",
-                serie: 456240002
-            }
-*/
+            /*
+                        // DEFINE ELEMENTS IN OBJET OF INTERFACE
+                        car1= {
+                            marque: "VIMANAS 56",
+                            couleur: "bleu",
+                            serie: 144560001
+                        },
+                        car2 =  {
+                            marque: "mini",
+                            couleur: "green",
+                            serie: 4353
+                        },
+                        car3:  {
+                            marque: "HAGAKURE",
+                            couleur: "yellow",
+                            serie: 456240002
+                        }
+            */
         }
 
     }
@@ -118,17 +118,19 @@ class Mycars extends Component <titleProps, MycarsState> {
         // DECLARING
         const carsElements: JSX.Element[] = [];
 
+        // SELECTING ALL PAIR POSITION ELEMENT OBJECT OR AN
+        // ELEMENT WITH 4353 PAIR/IMPAIR YING YANG
         do {
             if (i%2==0 || car[i].serie === 4353) {
-            carsElements.push(
+                carsElements.push(
 
-                <Cars
-                      key={i}
-                      marque={car[i].marque}
-                      couleur={car[i].couleur}
-                      serie={car[i].serie}/>
+                    <Cars
+                        key={i}
+                        marque={car[i].marque}
+                        couleur={car[i].couleur}
+                        serie={car[i].serie}/>
 
-            );
+                );
 
             }else{
                 //nothing
@@ -142,43 +144,43 @@ class Mycars extends Component <titleProps, MycarsState> {
 
         return (
 
-        <div>
+            <div>
                 <div>
                     <Wrapper>
                         <h1 style={{color}}>THE MODIFIED FIELD: {title} INDEX OF CAR IS : {indexOfCars}</h1>
                     </Wrapper>
                 </div>
 
-            {/* output iteration elements in array carsElements TSX here */}
-            <div>USING ITERATION DO ... LOOP IN TSX OUTSIDE RETURN</div>
-            {carsElements[3].key}
-            {carsElements}
+                {/* output iteration elements in array carsElements TSX here */}
+                <div>USING ITERATION DO ... LOOP IN TSX OUTSIDE RETURN</div>
+                {carsElements[3].key}
+                {carsElements}
 
-            <div>USING ITERATION map IN TSX INSIDE RETURN NOT MORE COMBINATION AND POSSIBILITY EXCELLENTLY
-                FOR LIMIT ARRAY AND CONDITION TO OUTPUT ELEMENT</div>
+                <div>USING ITERATION map IN TSX INSIDE RETURN NOT MORE COMBINATION AND POSSIBILITY EXCELLENTLY
+                    FOR LIMIT ARRAY AND CONDITION TO OUTPUT ELEMENT</div>
 
-            {car.slice(0,limitSup).map( (elemCar, index) =>
+                {car.slice(0,limitSup).map( (elemCar, index) =>
                     {
                         if( elemCar.serie === 4353 ){
                             return (
-                                    <Cars
-                                        key={index}
-                                        marque={elemCar.marque}
-                                        couleur={elemCar.couleur}
-                                        serie={elemCar.serie}/>
-                                    );
+                                <Cars
+                                    key={index}
+                                    marque={elemCar.marque}
+                                    couleur={elemCar.couleur}
+                                    serie={elemCar.serie}/>
+                            );
                         }else{
                             return null;
                         }
 
                     }
                 )
-            }
+                }
 
 
 
 
-            {/*<div>
+                {/*<div>
                     <Cars marque={car[0].marque}
                           couleur={car[0].couleur}
                           serie={car[0].serie}/>

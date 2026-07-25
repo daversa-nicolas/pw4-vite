@@ -6,17 +6,15 @@ import type {titleProps, ArrayCars} from './components/Mycars';
 
 import './App.css'
 
-type AppProps = Record<string, never>;
-
 interface AppState {
     myTitle: titleProps;
     myCarArray: ArrayCars;
     name: string;
 }
 
-class App extends Component <AppProps, AppState> {
+class App extends Component <titleProps, AppState> {
 
-    constructor(props: AppProps) {
+    constructor(props: titleProps) {
         super(props);
 
         //e constructeur est le seul endroit où vous devriez
@@ -43,17 +41,17 @@ class App extends Component <AppProps, AppState> {
                     couleur: "YELLOW",
                     serie: 5485
                 }
-                ]
-                ,
+            ]
+            ,
 
             name: "using DEFAULT NAME individual"
 
         }
 
-//Shouldn’t the this value point to the global object,
-// since we are running this in non-strict mode according to
-// the rules of default binding?” you might ask.
-// No. This is why:
+        //Shouldn’t the this value point to the global object,
+        // since we are running this in non-strict mode according to
+        // the rules of default binding?” you might ask.
+        // No. This is why:
         //Strict mode applies to entire scripts or to individual functions
         // . It doesn't apply to block statements enclosed in {} braces;
         // attempting to apply it to such contexts does nothing. eval code,
@@ -61,10 +59,10 @@ class App extends Component <AppProps, AppState> {
         // setTimeout(), et les fonctions connexes sont soit des corps
         // de fonctions, soit des scripts entiers, et l'invocation d'un
         // mode strict en eux fonctionne comme prévu.
-//            The bodies of class declarations and class expressions are
-//            executed in strict mode, that is the constructor, static
-//            and prototype methods. Getter and setter functions are executed
-//            in strict mode.
+        //            The bodies of class declarations and class expressions are
+        //            executed in strict mode, that is the constructor, static
+        //            and prototype methods. Getter and setter functions are executed
+        //            in strict mode.
         // So, to prevent the error, we need to bind the this value like this:
         // the context of THIS in a event handler is not bound by default:
         // we need to bind this MANUALLY to access props and state
@@ -140,11 +138,12 @@ class App extends Component <AppProps, AppState> {
 
     }
 
-    handleSubmitForm(e: React.FormEvent<HTMLFormElement>) {
+    handleSubmitForm(e: React.SubmitEvent<HTMLFormElement>) {
         e.preventDefault();
         alert("THE NAME INPUT IN FORM IS_:_"+this.state.name);
         console.log(this.state.myTitle.color);
-        console.log(this.state.name);
+        console.log("THE NAME INPUT IN FORM IS_:_" + this.state.name);
+        console.log("CALLED FORM SUBMIT SUCCESSFUL");
     }
 
     outputInterfaceArrayTs=
@@ -155,6 +154,13 @@ class App extends Component <AppProps, AppState> {
             console.log(this.state.myCarArray[0].marque);
 
         }
+
+    assalamFun = ()=> {
+        console.log("assmal eikom without dummy");
+    }
+    namasteFunc= (argVar:string) => {
+        console.log(argVar);
+    }
 
 
     render(){
@@ -203,9 +209,9 @@ class App extends Component <AppProps, AppState> {
                             value="click">
                         CHANGING BY INPUT ONCLICK
                     </button>
-                    <div>STARTING FORM</div>
-                    <form onSubmit={this.handleSubmitForm} >
 
+                    <form className="padForm1" onSubmit={this.handleSubmitForm} >
+                        <div>STARTING FORM</div>
                         <label>THIS IS THE INPUT FROM TO MODIFIER : {name}</label>
 
                         <input type="text"
@@ -217,14 +223,30 @@ class App extends Component <AppProps, AppState> {
                             BUTTON FORM ENTER NAME SAISI
                         </button>
 
-
-
                     </form>
-                    <div>TESTING AFTER FORM FROM DATA ARRAY</div>
+
+                    <div className="padForm1">FINISH FORM</div>
+
+                    <div>TESTING DATA VALUES FROM DATA ARRAY</div>
+
                     <button type="button" onClick={this.outputInterfaceArrayTs} value="click">
-                        BUTTON OUTPUT SELECTED DATA STATE
+                        BUTTON OUTPUT FROM DATA ARRAY
                     </button>
 
+                    <div>TESTING CALL WITHOUT WITH DUMMY ARGUMENT</div>
+                    <button type="button" onClick={this.assalamFun}>
+                        BUTTON OUTPUT NO DUMMY  DATA STATE
+                    </button>
+
+                    <div>TESTING CALL WITH DUMMY ARGUMENT</div>
+                    <button type="button" onClick={()=> this.namasteFunc("Assalam-dummy-argument")}>
+                        BUTTON OUTPUT  WITH DUMMY DATA STATE
+                    </button>
+
+                    <div> TESTING OUTPUT WITHOUT FUNCTION </div>
+                    <button onClick={()=>console.log("Nǐ hǎo")}>
+                        BUTTON DECLANCE CONSOLE LOG WITHOUT CALLING FUNCTION
+                    </button>
 
                 </div>
 

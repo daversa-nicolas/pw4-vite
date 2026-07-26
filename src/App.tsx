@@ -44,7 +44,7 @@ class App extends Component <titleProps, AppState> {
             ]
             ,
 
-            name: "using DEFAULT NAME individual"
+            name: "initial-constructor"
 
         }
 
@@ -73,6 +73,8 @@ class App extends Component <titleProps, AppState> {
         this.handleSubmitForm=this.handleSubmitForm.bind(this);
 
     }
+
+
 
     // HORS CONTRUCTOR fonction avec event that modify STATE of interely object
     onClickIncreasingTs =
@@ -167,6 +169,13 @@ class App extends Component <titleProps, AppState> {
         const {title, color} = this.state.myTitle;
         const {name} = this.state;
         //const {car} = this.state;
+
+        // AFFICHAGE TAG IN CONDITIONAL ONLY AFTER RENDER
+        const elementCond = this.state.name !== "initial-constructor" ?
+            (<input type="string" value={name}/>)
+            : (<div>ELEM CONDITIONAL 2 WAITING </div>)
+
+
         return (
             <div>
 
@@ -247,6 +256,14 @@ class App extends Component <titleProps, AppState> {
                     <button onClick={()=>console.log("Nǐ hǎo")}>
                         BUTTON DECLANCE CONSOLE LOG WITHOUT CALLING FUNCTION
                     </button>
+
+                    <div>
+                        TESTING INPUT
+                    </div>
+                    {elementCond}
+                    <div>
+                        TESTING INPUT
+                    </div>
 
                 </div>
 

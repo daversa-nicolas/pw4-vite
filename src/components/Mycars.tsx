@@ -1,7 +1,8 @@
-import {Component, type JSX} from 'react';
+import {Component, Fragment, type JSX} from 'react';
 import Cars, {type CarsInter} from './Cars';
 import './Mycars.scss'
 import Wrapper from "./Wrapper";
+
 
 // THIS IS PROPS from PARENT MUST HAVE SAME
 // TYPE Inteface ARE PROPS NOT STATE
@@ -69,12 +70,13 @@ class Mycars extends Component <titleProps, MycarsState> {
                     serie: 144221
                 },
                 {
-                    marque: "mini 8845 5",
+                    marque: "mini by retroingenierie of Vimanas antigravity  - 黑龙大学 - Université du Heilongjiang du fleuve\n" +
+                        "dragon noir -  5",
                     couleur: "green",
                     serie: 4353
                 },
                 {
-                    marque: "VIMANAS 5546 6",
+                    marque: "VIMANAS 5546 https://www.youtube.com/watch?v=Svn1gHu2pRU ",
                     couleur: "bleu",
                     serie: 143211
                 }
@@ -124,15 +126,16 @@ class Mycars extends Component <titleProps, MycarsState> {
             if (i%2==0 || car[i].serie === 4353) {
                 carsElements.push(
 
-                    <Cars
-                        key={i}
+                    <Fragment key={i}>
+                        <Cars
                         marque={car[i].marque}
                         couleur={car[i].couleur}
                         serie={car[i].serie}/>
+                    </Fragment>
 
                 );
 
-            }else{
+                }else{
                 //nothing
             };
 
@@ -153,21 +156,43 @@ class Mycars extends Component <titleProps, MycarsState> {
 
                 {/* output iteration elements in array carsElements TSX here */}
                 <div>USING ITERATION DO ... LOOP IN TSX OUTSIDE RETURN</div>
+
+                <table className="tableStyle">
+
+                    <tr>
+                        <th>MARQUE</th>
+                        <th>AGE</th>
+                        <th>COULEUR</th>
+                    </tr>
+
+                        {carsElements}
+
+                </table>
+
                 {carsElements[3].key}
-                {carsElements}
 
                 <div>USING ITERATION map IN TSX INSIDE RETURN NOT MORE COMBINATION AND POSSIBILITY EXCELLENTLY
                     FOR LIMIT ARRAY AND CONDITION TO OUTPUT ELEMENT</div>
+
+                <table className="tableStyle">
+
+                    <tr>
+                        <th>MARQUE</th>
+                        <th>AGE</th>
+                        <th>COULEUR</th>
+                    </tr>
 
                 {car.slice(0,limitSup).map( (elemCar, index) =>
                     {
                         if( elemCar.serie === 4353 ){
                             return (
+                                <Fragment key={index}>
                                 <Cars
                                     key={index}
                                     marque={elemCar.marque}
                                     couleur={elemCar.couleur}
                                     serie={elemCar.serie}/>
+                                </Fragment>
                             );
                         }else{
                             return null;
@@ -175,7 +200,9 @@ class Mycars extends Component <titleProps, MycarsState> {
 
                     }
                 )
+
                 }
+                </table>
 
 
 

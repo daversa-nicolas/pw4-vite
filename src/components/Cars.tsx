@@ -1,6 +1,6 @@
 import {Component} from "react";
 import './Cars.css'
-import Wrapper from "./Wrapper";
+//import Wrapper from "./Wrapper";
 
 // REFINED INTERFACE ARRAY OF CARS
 /*
@@ -33,21 +33,22 @@ class Cars extends Component<CarsInter> {
 
         return (
 
-                <div>
-                    <Wrapper>
-                    <div className={fieldsinternal}>
-                        MARQUE: {this.props.marque}
-                    </div>
+                <tr>
 
-                    <div className={fieldsinternal}>
-                        COULEUR: {this.props.couleur}
-                    </div>
+                        <td className={fieldsinternal}>
+                            MARQUE: {this.props.marque}
+                        </td>
 
-                    <div className={fieldsinternal}>
-                        SERIE: {this.props.serie}
-                    </div>
-                </Wrapper>
-                </div>
+                        <td className={fieldsinternal}>
+                            COULEUR: {this.props.couleur}
+                        </td>
+
+                        <td className={fieldsinternal}>
+                            SERIE: {this.props.serie}
+                        </td>
+
+
+                </tr>
 
 
         )

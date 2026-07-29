@@ -1,0 +1,15 @@
+.navBarr1 {
+  background-color: #9ca3af;
+  padding: 4px;
+  margin: 5px;
+  display: grid;
+
+  .eleBarr1 {
+    display: flex;
+    justify-content: space-between;
+    background-color: #6b6375;
+    height: 60px;
+    color: darkgoldenrod;
+
+  }
+}

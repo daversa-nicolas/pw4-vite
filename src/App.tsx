@@ -5,6 +5,9 @@ import Mycars from './components/Mycars';
 import type {titleProps, ArrayCars} from './components/Mycars';
 
 import './App.css'
+// import {BrowserRouter} from "react-router-dom";
+import Header from "./components/Header.tsx";
+import RoutesLine from "./routes/RoutesLine.tsx";
 
 interface AppState {
     myTitle: titleProps;
@@ -179,6 +182,10 @@ class App extends Component <titleProps, AppState> {
         return (
             <div>
 
+                <Header/>
+
+                <RoutesLine/>
+
                 <Mycars title = {title}
                         color= {color}
                         indexOfCars={this.state.myTitle.indexOfCars}/>
@@ -264,8 +271,8 @@ class App extends Component <titleProps, AppState> {
                     <div>
                         TESTING INPUT
                     </div>
-
                 </div>
+
 
             </div>
 

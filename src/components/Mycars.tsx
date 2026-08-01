@@ -83,12 +83,12 @@ class Mycars extends Component <titleProps, MycarsState> {
             ]
             /*
                         // DEFINE ELEMENTS IN OBJET OF INTERFACE
-                        car1= {
+                        car1: {
                             marque: "VIMANAS 56",
                             couleur: "bleu",
                             serie: 144560001
                         },
-                        car2 =  {
+                        car2 :  {
                             marque: "mini",
                             couleur: "green",
                             serie: 4353

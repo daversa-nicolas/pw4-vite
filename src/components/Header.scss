@@ -1,15 +1,27 @@
 .navBarr1 {
-  background-color: #9ca3af;
-  padding: 4px;
+  background-color: gold;
+  padding: 20px;
   margin: 5px;
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  margin: 19px;
 
   .eleBarr1 {
+    margin: 15px;
     display: flex;
     justify-content: space-between;
-    background-color: #6b6375;
+    background-color: rosybrown;
     height: 60px;
     color: darkgoldenrod;
+
+    font-family: Charter;
+     .buttonSty{
+       background-color: burlywood;
+       color: black;
+       border-radius: 10px;
+       padding: 15px;
+       margin: 10px;
+     }
 
   }
 }

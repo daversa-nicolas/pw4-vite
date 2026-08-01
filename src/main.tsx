@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')!).render(
 
         <StrictMode>
             <BrowserRouter>
-            <App title={''} color={''} indexOfCars={0} />
+                <App title={''} color={''} indexOfCars={0} />
             </BrowserRouter>
           </StrictMode>
 

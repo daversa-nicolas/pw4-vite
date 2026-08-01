@@ -1,4 +1,5 @@
 import {Component} from "react";
+import "./Header.scss";
 import { NavLink } from "react-router-dom";
 
 class Header extends Component {
@@ -18,13 +19,19 @@ class Header extends Component {
 
                     <div>
                     <NavLink className={eleBarr} to="/">
-                        <button className="button">HOME</button>
+                        <button className="buttonSty">HOME</button>
                     </NavLink>
                     </div>
 
                     <div>
                     <NavLink className={eleBarr} to="/TableSample">
-                        <button className="button">TABLE LINK</button>
+                        <button className="buttonSty">TABLE LINK</button>
+                    </NavLink>
+                    </div>
+
+                    <div>
+                    <NavLink className={eleBarr} to="/DestructuringTesting">
+                        <button className="buttonSty">DESTRUCTURING SAMPLES LINK</button>
                     </NavLink>
                     </div>
 

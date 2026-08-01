@@ -111,7 +111,10 @@ class Mycars extends Component <titleProps, MycarsState> {
 
     render() {
         console.log("LEIGHT_CAR_ARRAY : " + this.state.car.length);
+
         // NOTE COLOR IS AN OBJET
+        // THIS IS THE DESCTRUCTURING OF PROPS THAT IS TOO FOR PROPS NOT ONLY
+        // OBJECT AND ARRAYS ELEMENTS
         const {title, color, indexOfCars} = this.props;
         const {car} = this.state;
         // const { marque, couleur, serie } = this.state.car2;

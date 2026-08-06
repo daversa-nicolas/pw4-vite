@@ -3,6 +3,7 @@ import TableSample from "../components/TableSample.tsx";
 import {Route, Routes} from "react-router-dom";
 import Home from "../components/Home.tsx";
 import DestructuringTesting from "../components/DestructuringTesting.tsx";
+import FormSample from "../components/FormSample.tsx";
 
 class RoutesLine extends Component{
 
@@ -14,6 +15,7 @@ class RoutesLine extends Component{
                     <Route path="/" element={<Home/>}/>
                     <Route path="/TableSample" element={<TableSample/>}/>
                     <Route path="/DestructuringTesting" element={<DestructuringTesting/>}/>
+                    <Route path="/FormSample" element={<FormSample/>}/>
                 </Routes>
 
                 </div>

@@ -35,6 +35,12 @@ class Header extends Component {
                     </NavLink>
                     </div>
 
+                    <div>
+                    <NavLink className={eleBarr} to="/FormSample">
+                        <button className="buttonSty">FORM SIMPLE</button>
+                    </NavLink>
+                    </div>
+
                 </nav>
 
             </div>

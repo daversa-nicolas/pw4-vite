@@ -162,13 +162,16 @@ class Mycars extends Component <titleProps, MycarsState> {
 
                 <table className="tableStyle">
 
+                    <thead>
                     <tr>
                         <th>MARQUE</th>
                         <th>AGE</th>
                         <th>COULEUR</th>
                     </tr>
-
+                    </thead>
+                    <tbody>
                         {carsElements}
+                    </tbody>
 
                 </table>
 

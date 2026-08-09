@@ -1,5 +1,7 @@
 import {Component, type JSX} from "react";
 import * as React from "react";
+import InputPure, {type InputProps} from "./InputPure";
+
 
 // without import interface from a child
 interface TableStateTemplate {
@@ -9,7 +11,7 @@ interface TableStateTemplate {
     typesVimanas : string[];
     yearManufacture : number;
     validatedForm: boolean;
-
+    nameChildren: InputProps;
 }
 
 
@@ -23,7 +25,10 @@ class FormSample extends Component <Record<string, never>, TableStateTemplate> {
             selectedVimanas:"",
             typesVimanas: ["-","Dvapara-yuga","Shakina","Kaliyuga","Kamayuga","Vimaanika Shastra antigravity","Vikina"],
             yearManufacture: 0,
-            validatedForm: true
+            validatedForm: true,
+            nameChildren:{
+                name: "THIS NAME TO CHIDREN COMPONENT FROM PARENT"
+            }
         }
     }
 
@@ -31,14 +36,19 @@ class FormSample extends Component <Record<string, never>, TableStateTemplate> {
     fonctionSubmitF = (e:
                        React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()
-        alert("SUBMITTED WORKING");
-        // TO NO ENTER RENDER IN THE CASE NO DATA FORM MUTED
-        this.setState({
-            validatedForm: false
-        })
+
         console.log("MODEL INPUT : "+this.state.model + "TYPE SCROLL INPUT : "
             + this.state.selectedVimanas + "YEAR MANUFACTURE INPUT : "
             + this.state.yearManufacture)
+
+        alert("SUBMITTED WORKING");
+        // TO NO ENTER RENDER IN THE CASE NO DATA FORM MUTED
+
+        this.setState({
+            nameChildren: {
+                name: " MODIFIED NAME CHILDREN BT HANDLER FORM "
+            }
+        })
     }
 
     handleModel = (e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -90,8 +100,9 @@ class FormSample extends Component <Record<string, never>, TableStateTemplate> {
     }
     // RETURN BOOLEAN TYPE
     // _nextProps in the case no props provenance from parents
-    shouldComponentUpdate(_nextProps: Readonly<Record<string, never>>,
+   /* shouldComponentUpdate(_nextProps: Readonly<Record<string, never>>,
                           nextState: TableStateTemplate): boolean {
+        // NOT USE USING IF USING PURE COMPONENT
 
         if(nextState.validatedForm === true){
             // UPDATING RENDER STEP
@@ -100,7 +111,7 @@ class FormSample extends Component <Record<string, never>, TableStateTemplate> {
 
         return false;
 
-    }
+    }*/
 
 
     // 7eme/2PHASE - LAST METHOD UPDATING
@@ -115,6 +126,7 @@ class FormSample extends Component <Record<string, never>, TableStateTemplate> {
     render() {
         console.log("3eme MOUNTING PHAS : ---->>> RENDERING  WORKING <<<<<-------");
         const {typesVimanas, selectedVimanas} = this.state;
+        const {name} = this.state.nameChildren;
 
         let i: number = 0;
         // DECLARING
@@ -170,6 +182,9 @@ class FormSample extends Component <Record<string, never>, TableStateTemplate> {
 
                 </form>
                 <button > RESET FORM </button>
+
+                <InputPure name={name}/>
+
             </div>
         )
     }

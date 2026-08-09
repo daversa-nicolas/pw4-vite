@@ -15,7 +15,7 @@ export interface titleProps {
 export type ArrayCars = CarsInter[];
 
 // CREATING car OF INTERFACE
-export interface MycarsState {
+interface MycarsState {
     car: ArrayCars;
     // car1: ArrayCars;
 }

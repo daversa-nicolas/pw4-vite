@@ -1,15 +1,17 @@
 import {Component, type JSX} from "react";
 import * as React from "react";
 
-
-// without import interface from a children
+// without import interface from a child
 interface TableStateTemplate {
     model : string;
     // type ARRAY OF STRING
     selectedVimanas : string;
     typesVimanas : string[];
     yearManufacture : number;
+    validatedForm: boolean;
+
 }
+
 
 // NO PROPS FROM PARENTS
 class FormSample extends Component <Record<string, never>, TableStateTemplate> {
@@ -20,7 +22,8 @@ class FormSample extends Component <Record<string, never>, TableStateTemplate> {
             model: "",
             selectedVimanas:"",
             typesVimanas: ["-","Dvapara-yuga","Shakina","Kaliyuga","Kamayuga","Vimaanika Shastra antigravity","Vikina"],
-            yearManufacture: 0
+            yearManufacture: 0,
+            validatedForm: true
         }
     }
 
@@ -29,6 +32,10 @@ class FormSample extends Component <Record<string, never>, TableStateTemplate> {
                        React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()
         alert("SUBMITTED WORKING");
+        // TO NO ENTER RENDER IN THE CASE NO DATA FORM MUTED
+        this.setState({
+            validatedForm: false
+        })
         console.log("MODEL INPUT : "+this.state.model + "TYPE SCROLL INPUT : "
             + this.state.selectedVimanas + "YEAR MANUFACTURE INPUT : "
             + this.state.yearManufacture)
@@ -57,40 +64,88 @@ class FormSample extends Component <Record<string, never>, TableStateTemplate> {
     }
 
 
+    //LIFECYCLE METHODS START
 
-render() {
-    const {typesVimanas, selectedVimanas} = this.state;
+    // only static beacause no data props - state received from parent
+    static getDerivedStateFromProps() {
+        console.log("MOUNTING PHAS : ---->>> GET DERIVED STATE FROM PROPS WORKING" +
+            "DANS TOUS LES CASE CALLED PHASES <<<-----");
+        return null;
+    }
 
-    let i: number = 0;
-    // DECLARING
-    const vimanaElements: JSX.Element[] = [];
+    componentDidMount() {
+        console.log(" 4eme MOUTING PHAS : COMPONENT DID MOUNT WORKING");
+        // CAUSE OF ASYNCRONOUS NEED UNE PREVSTATE TO ADD THE 0 STARTING VALUE IN CONSTRUCTOR
+        this.setState(
+            (prevState) => ({
+                yearManufacture: prevState.yearManufacture + 3,
+            }),
+            () => {
+                console.log(
+                    "THIS IS MODIFIED MANUFACTURE DID MOUNT: " + this.state.yearManufacture
+                );
+                console.log("THIS IS MODIFIED MANYFACTURE BY ETRES SUBTILES:" + this.state.yearManufacture)
+            }
+        )
+    }
+    // RETURN BOOLEAN TYPE
+    // _nextProps in the case no props provenance from parents
+    shouldComponentUpdate(_nextProps: Readonly<Record<string, never>>,
+                          nextState: TableStateTemplate): boolean {
 
-    do {
-        // pushing in scrool option all element of
-        vimanaElements.push(
-            <option key={i}>
-                {this.state.typesVimanas[i]}
-            </option>
-        );
+        if(nextState.validatedForm === true){
+            // UPDATING RENDER STEP
+            return true;
+        }
 
-        i=i+1;
+        return false;
 
-    } while(i < typesVimanas.length);
+    }
+
+
+    // 7eme/2PHASE - LAST METHOD UPDATING
+    componentDidUpdate() {
+        console.log("2eme UPDATING PHASE : COMPONENT DID UPDATE WORKING");
+        console.log("2eme UPDATING 2eme UPDATING PHAS  PREVIOUS STATE YEAR : " + this.state.yearManufacture)
+        console.log("2eme UPDATING PREVIOUS STATE : " + this.state.model)
+        console.log("2eme UPDATING NOW STATE YEAR : " + this.state.yearManufacture)
+        console.log("2eme UPDATING NOW STATE MODEL : " + this.state.model)
+    }
+
+    render() {
+        console.log("3eme MOUNTING PHAS : ---->>> RENDERING  WORKING <<<<<-------");
+        const {typesVimanas, selectedVimanas} = this.state;
+
+        let i: number = 0;
+        // DECLARING
+        const vimanaElements: JSX.Element[] = [];
+
+        do {
+            // pushing in scrool option all element of
+            vimanaElements.push(
+                <option key={i}>
+                    {this.state.typesVimanas[i]}
+                </option>
+            );
+
+            i=i+1;
+
+        } while(i < typesVimanas.length);
 
         return (
             <div>
                 <form onSubmit={this.fonctionSubmitF}>
-                <div>
-                    <label>
-                        1FIRST FIELD - MODEL OF VIMANAS
-                        ANTIGRAVITY
-                        UNIVERSITY
-                        HEJILOUYANG :</label>
-                    <input type = "text"
-                        value = {this.state.model}
-                        onChange={this.handleModel}
-                    />
-                </div>
+                    <div>
+                        <label>
+                            1FIRST FIELD - MODEL OF VIMANAS
+                            ANTIGRAVITY
+                            UNIVERSITY
+                            HEJILOUYANG :</label>
+                        <input type = "text"
+                               value = {this.state.model}
+                               onChange={this.handleModel}
+                        />
+                    </div>
 
 
                     <label>2SECOND FIELD - TYPE : </label>
@@ -116,8 +171,8 @@ render() {
                 </form>
                 <button > RESET FORM </button>
             </div>
-    )
+        )
     }
-    }
+}
 
-    export default FormSample;
+export default FormSample;

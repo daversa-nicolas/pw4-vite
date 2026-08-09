@@ -131,14 +131,14 @@ class Mycars extends Component <titleProps, MycarsState> {
 
                     <Fragment key={i}>
                         <Cars
-                        marque={car[i].marque}
-                        couleur={car[i].couleur}
-                        serie={car[i].serie}/>
+                            marque={car[i].marque}
+                            couleur={car[i].couleur}
+                            serie={car[i].serie}/>
                     </Fragment>
 
                 );
 
-                }else{
+            }else{
                 //nothing
             };
 
@@ -170,7 +170,7 @@ class Mycars extends Component <titleProps, MycarsState> {
                     </tr>
                     </thead>
                     <tbody>
-                        {carsElements}
+                    {carsElements}
                     </tbody>
 
                 </table>
@@ -181,33 +181,36 @@ class Mycars extends Component <titleProps, MycarsState> {
                     FOR LIMIT ARRAY AND CONDITION TO OUTPUT ELEMENT</div>
 
                 <table className="tableStyle">
-
+                    <thead>
                     <tr>
                         <th>MARQUE</th>
                         <th>AGE</th>
                         <th>COULEUR</th>
                     </tr>
+                    </thead>
 
-                {car.slice(0,limitSup).map( (elemCar, index) =>
-                    {
-                        if( elemCar.serie === 4353 ){
-                            return (
-                                <Fragment key={index}>
-                                <Cars
-                                    key={index}
-                                    marque={elemCar.marque}
-                                    couleur={elemCar.couleur}
-                                    serie={elemCar.serie}/>
-                                </Fragment>
-                            );
-                        }else{
-                            return null;
+                    <tbody>
+                    {car.slice(0,limitSup).map( (elemCar, index) =>
+                        {
+                            if( elemCar.serie === 4353 ){
+                                return (
+                                    <Fragment key={index}>
+                                        <Cars
+                                            key={index}
+                                            marque={elemCar.marque}
+                                            couleur={elemCar.couleur}
+                                            serie={elemCar.serie}/>
+                                    </Fragment>
+                                );
+                            }else{
+                                return null;
+                            }
+
                         }
+                    )
 
                     }
-                )
-
-                }
+                    </tbody>
                 </table>
 
 

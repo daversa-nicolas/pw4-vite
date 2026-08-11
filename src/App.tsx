@@ -245,7 +245,8 @@ class App extends Component <titleProps, AppState> {
 
                     <div>TESTING DATA VALUES FROM DATA ARRAY</div>
 
-                    <button type="button" onClick={this.outputInterfaceArrayTs} value="click">
+                    <button type="button" onClick={this.outputInterfaceArrayTs}
+                            value="click">
                         BUTTON OUTPUT FROM DATA ARRAY
                     </button>
 

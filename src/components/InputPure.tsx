@@ -19,7 +19,7 @@ class InputPure extends react.PureComponent<InputProps>{
 
         return(
 
-            <div>CHILDREN LABEL INPUT NAME - NO STATES CHANGES :
+            <div>- ONLY WHEN CHILDREN STATES CHANGES - :
                 <label>"THIS IS THE OUTPUT OF CHILDREN PURE : "+{name}</label>
             </div>
 

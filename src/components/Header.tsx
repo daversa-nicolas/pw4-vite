@@ -41,6 +41,12 @@ class Header extends Component {
                     </NavLink>
                     </div>
 
+                    <div>
+                    <NavLink className={eleBarr} to="/PassingDataRef">
+                        <button className="buttonSty">PASSING SYNCRONOUS DATA REF</button>
+                    </NavLink>
+                    </div>
+
                 </nav>
 
             </div>

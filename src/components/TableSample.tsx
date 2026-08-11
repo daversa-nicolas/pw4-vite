@@ -27,7 +27,8 @@ class TableSample extends Component <Record<string, never>, TableState> {
         this.state = {
             imageHangar1: {
                 colorProps: "green",
-                nameImage: "brics-empire-techno-retroingenering-Vimanas"
+                nameImage: "brics-empire-techno-retroingenering-Vimanas",
+                nameImageTechno: "techno-zoneS4"
             }
         }
 
@@ -63,9 +64,9 @@ class TableSample extends Component <Record<string, never>, TableState> {
 
                 </table>
 
-                <ImagesHangar colorProps={imageHangar1.colorProps} nameImage={imageHangar1.nameImage}/>
-
-
+                <ImagesHangar colorProps={imageHangar1.colorProps}
+                              nameImage={imageHangar1.nameImage}
+                              nameImageTechno={imageHangar1.nameImageTechno}/>
             </>
 
 

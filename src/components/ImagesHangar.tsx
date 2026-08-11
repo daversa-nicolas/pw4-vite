@@ -1,12 +1,14 @@
 import React from "react";
 import bricsDominanceUnit from "../assets/brics-dominance-unit.jpg";
 import vimanasAncientRetroZone51 from "../assets/vimanas-AncientRetroZone51.png";
+import vimanaRetroingenieringZoneS4 from "../assets/retroingeniering-zoneS4.JPG";
 
 
 // EXPORT TO PARENT
 export interface ImageHangarS {
     colorProps: string;
     nameImage: string;
+    nameImageTechno:string;
 }
 
 
@@ -56,10 +58,17 @@ const ImagesHangar = (props: ImageHangarS) =>{
             <div>
                 <img style={{
                     padding: "50px",
-                    height: "550px",
-                    width: "500px",
+                    height: "350px",
+                    width: "300px",
                     backgroundColor: props.colorProps}}
                      src={vimanasAncientRetroZone51}
+                     alt="" />
+                <img style={{
+                    padding: "50px",
+                    height: "350px",
+                    width: "300px",
+                    backgroundColor: props.colorProps}}
+                     src={vimanaRetroingenieringZoneS4}
                      alt="" />
                 <div>{"THIS IS THE OUTPUT FROM PARENT PROPS:" + props.nameImage}</div>
                 <div>"SECOND from imported asset IMAGE FOUND"</div>

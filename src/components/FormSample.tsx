@@ -32,7 +32,6 @@ class FormSample extends Component <Record<string, never>, TableStateTemplate> {
         }
     }
 
-
     fonctionSubmitF = (e:
                        React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()

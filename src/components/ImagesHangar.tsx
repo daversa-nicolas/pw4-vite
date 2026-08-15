@@ -1,7 +1,9 @@
 import React from "react";
 import bricsDominanceUnit from "../assets/brics-dominance-unit.jpg";
 import vimanasAncientRetroZone51 from "../assets/vimanas-AncientRetroZone51.png";
-import vimanaRetroingenieringZoneS4 from "../assets/retroingeniering-zoneS4.JPG";
+import vimanaRetroingenieringZoneS4 from "../assets/retroingeniering-zoneS4.jpg";
+
+//import {Link} from "react-router-dom";
 
 
 // EXPORT TO PARENT
@@ -11,6 +13,9 @@ export interface ImageHangarS {
     nameImageTechno:string;
 }
 
+function newTab(url: string) {
+    window.open(url, "_blank", "noopener,noreferrer");
+}
 
 
 const ImagesHangar = (props: ImageHangarS) =>{
@@ -45,7 +50,11 @@ const ImagesHangar = (props: ImageHangarS) =>{
                             un pays. Il garantit la monnaie par un
                             actif tangible. La prochaine étape, déjà effectuée en The Unit BRICS+ adossée à l'
                             or, consiste en une monnaie de
-                            réserve multilatérale entre ces parties (en commençant par les BRICS +), annihilant toute transaction en dollar-frustré.
+                            réserve multilatérale entre ces parties (en commençant par
+                            les <div style={{fontStyle:"bold", color:"grey",
+                            textDecorationLine:"underline"}} onClick ={()=> newTab("https://www.youtube.com/watch?v=FFTCMfW32VA")}>
+
+                            BRICS + </div> ), annihilant toute transaction en dollar-frustré.
                             ---
                             International Monetary Economics, Michael Angelo Heilperin (Swiss University)
                         </div>

@@ -47,6 +47,12 @@ class Header extends Component {
                     </NavLink>
                     </div>
 
+                    <div>
+                    <NavLink className={eleBarr} to="/GeneralHoc">
+                        <button className="buttonSty">DATA IN HOC CALLING METHODS FROM PARENT AND CHILDREN</button>
+                    </NavLink>
+                    </div>
+
                 </nav>
 
             </div>

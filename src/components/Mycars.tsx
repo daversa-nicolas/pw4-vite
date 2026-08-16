@@ -153,7 +153,10 @@ class Mycars extends Component <titleProps, MycarsState> {
             <div>
                 <div>
                     <Wrapper>
-                        <h1 style={{color}}>THE MODIFIED FIELD: {title} INDEX OF CAR IS : {indexOfCars}</h1>
+                        <h1 style={{color,
+                            padding:"20px",
+                            background:"lightgoldenrodyellow",
+                            fontSize:"30px"}}>THE MODIFIED FIELD: {title} INDEX OF CAR IS : {indexOfCars}</h1>
                     </Wrapper>
                 </div>
 

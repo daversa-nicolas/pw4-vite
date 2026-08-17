@@ -9,6 +9,8 @@ class GeneralHoc extends React.Component {
             <div>
                 <Veda nameComp="VEDA"/>
                 <Vimanas nameComp="VIMANAS"/>
+
+
             </div>
         );
     }

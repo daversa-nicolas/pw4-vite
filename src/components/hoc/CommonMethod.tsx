@@ -1,10 +1,14 @@
 import React, {type ComponentType} from "react";
 
-
+// to injection in childrens from HOC
 export interface CommonMethodInjectedByHoc{
     commonMethodHoc:() => void;
     methodNameUsedHoc: () => string;
+    currentClickedName: string;
+
+    handleComponentClick: () => void;
 }
+
 
 const commonMethod = <P extends object>
 (WrappedComponent: ComponentType<P & CommonMethodInjectedByHoc>):
@@ -12,35 +16,69 @@ const commonMethod = <P extends object>
     class CommonMethod extends React.Component<P> {
 
         state = {
-            nameComp: "THIS IS INITIAL COMMON STATE",
+            nameComp: "CONSTRUCTON INITIAL",
+            commitCliked: false,
+            currentClickedName:"INITIAL NAME COMPOMENT"
         }
 
-        // after render and before setState
-        componentDidMount(){
-            console.log("THIS IS COMMON METHOD WORKING DIDMOUNT in state initial:" +
-            this.state.nameComp)
-        }
+        // Cette méthode modifie l'état UNIQUEMENT lors de l'action utilisateur
+        handleComponentClick = (componentName: string): void => {
+            console.log("THIS OUTPUT HOC METHOD HAND COMPONENT CLICK NAME WORKING: " + componentName);
+
+            // Mise à jour de l'état : React va automatiquement réafficher les enfants
+            this.setState({
+                commitCliked: true,
+                currentClickedName: componentName
+            });
+
+            console.log("THIS IS commit CLICKED BOOLEAN : " + this.state.commitCliked);
+
+        };
 
         commonsMethod=()=>{
 
             console.log("THIS IS COMMON METHOD WORKING :");
 
+
+
         }
 
         methodNameUsed=(nameCompDummy: string): string =>{
             console.log("THIS OUTPUT HOC METHOD NAME WORKING :" + nameCompDummy);
+
             return "YOU CLICKED ON BUTTON COMPONENT : " + nameCompDummy;
         }
 
-        render() {
 
+        componentDidUpdate(_prevProps: Readonly<P>, prevState: Readonly<{ commitCliked: boolean }>) {
+            const wrapperName= WrappedComponent.name;
+
+            console.log("THIS IS componentDidUpdate WORKING:" + wrapperName )
+            if (this.state.commitCliked !== prevState.commitCliked) {
+                console.log("THIS IS componentDidUpdate WORKING:" + wrapperName )
+            }
+            console.log("THIS IS componentDidUpdate WORKING:" + wrapperName )
+        }
+
+
+
+        render() {
+            const wrapperName = WrappedComponent.name || "Componente sin nombre";
             //destructuring applied to props and methods HOC
-            const props = {commonMethodHoc: this.commonsMethod,
+            // Injection des propriétés dynamiques from HOC to childrens
+
+            const props = {
+                commonMethodHoc: this.commonsMethod,
                 // Pasa una función que acepta el nombre del componente cuando sea llamada
                 // WrappedComponent.name >> name proviene automáticamente de la definición
                 // de la función o clase del componente que estás envolviendo.
-                methodNameUsedHoc:()=> this.methodNameUsed(WrappedComponent.name),
-                ...this.props} as P & CommonMethodInjectedByHoc;
+                // PASSING VAL?UE OF STATE
+                methodNameUsedHoc: () => wrapperName,
+                currentClickedName: this.state.currentClickedName,
+                handleComponentClick:()=> this.handleComponentClick(wrapperName),
+                ...this.props
+            } as P & CommonMethodInjectedByHoc;
+
 
 
             return <WrappedComponent {...props}/>

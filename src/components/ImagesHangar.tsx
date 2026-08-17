@@ -82,15 +82,24 @@ const ImagesHangar = (props: ImageHangarS) =>{
                 <div>{"THIS IS THE OUTPUT FROM PARENT PROPS:" + props.nameImage}</div>
                 <div>"SECOND from imported asset IMAGE FOUND"</div>
                 <div>黑龙大学 - Université du Heilongjiang du fleuve
-                    dragon noir - -
-                    applications de rétroingénierie à technologie supérieure et histoire
-                    des réels et anciens antigravitationnels échangée
-                    dans les complexes industrielles (Mohenjo-Daro – 7622 av.
+                    dragon noir - applications de rétroingénierie à technologie supérieure et histoire
+                    des réels et anciens   <a href="https://www.youtube.com/watch?v=Svn1gHu2pRU" rel="noreferrer">
+                        VIMANAS
+                    </a>
+                antigravitationnels échangée
+                dans les complexes industrielles (Mohenjo-Daro – 7622 av.
                     l’Hégira, Pyramides) qui cause la troisième révolution industrielle du
                     numérique (Huawei Device, Bell, Apple, Samsung, Lookheed Martin
                     aircrafts antigravitationals et invisibles)-(Bob Lazar - E. Musk)
-                    --
-                    https://www.youtube.com/watch?v=NOPtjD80r-s
+                    ---
+                    <a href="https://www.youtube.com/watch?v=NOPtjD80r-s" rel="noreferrer">
+                        https://www.youtube.com/watch?v=NOPtjD80r-s
+                    </a>
+                    ---
+                    <a href="https://www.youtube.com/watch?v=dCyv8oEsgdQ" rel="noreferrer">
+                        https://www.youtube.com/watch?v=dCyv8oEsgdQ
+                    </a>
+
                 </div>
             </div>
         )

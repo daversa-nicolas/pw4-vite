@@ -14,21 +14,21 @@ class Vimanas extends React.Component <VimanasProps>{
 
     render() {
 
-        // FROM PARENT PROPS - STATE YING YANG
+        //DESCRUCTURING of PROPS  FROM PARENT PROPS - STATE YING YANG
         //  AND injected from HOC
         const {nameComp,
-         
-            methodNameUsedHoc}=this.props;
+            handleComponentClick,
+             currentClickedName}=this.props;
 
         return (
             <div>
-             <button onClick={()=>
-                 {
-                     methodNameUsedHoc()
-                 }
+             <button onClick={()=>{
+                                      handleComponentClick()}
+
              }>
                  THIS IS Vimana BUTTON : {nameComp}</button>
-             <label>THIS IS VIMANAS STATE : {methodNameUsedHoc()}</label>
+                <label>THIS IS THE OUTPUT FROM PARENT PROPS : {currentClickedName}</label>
+
             </div>
         );
     }

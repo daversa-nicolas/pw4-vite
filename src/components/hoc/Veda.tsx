@@ -27,7 +27,7 @@ class Veda extends React.Component <VedaProps> {
 
         return (
             <div>
-                <button onClick={commonMethodHoc}>THIS IS VEDA BUTTON :{nameComp}</button>
+                <button onClick={()=> commonMethodHoc()}>THIS IS VEDA BUTTON :{nameComp}</button>
                 <label>THIS IS VEDA STATE : </label>
             </div>
         );

@@ -3,6 +3,7 @@ import React, {type ComponentType} from "react";
 
 export interface CommonMethodInjectedByHoc{
     commonMethodHoc:() => void;
+    methodNameUsedHoc: () => string;
 }
 
 const commonMethod = <P extends object>
@@ -16,7 +17,7 @@ const commonMethod = <P extends object>
 
         // after render and before setState
         componentDidMount(){
-            console.log("THIS IS COMMON METHOD WORKING in state initial:" +
+            console.log("THIS IS COMMON METHOD WORKING DIDMOUNT in state initial:" +
             this.state.nameComp)
         }
 
@@ -24,23 +25,25 @@ const commonMethod = <P extends object>
 
             console.log("THIS IS COMMON METHOD WORKING :");
 
-            /*this.setState(
-                {
-                    commonStateProp: {
-                        name: "COMMON METHOD MODIFIED VALUE"
-
-                    }
-                }
-            )*/
-
         }
 
-        outputName=()=>{
-            console.log(this.state);
+        methodNameUsed=(nameCompDummy: string): string =>{
+            console.log("THIS OUTPUT HOC METHOD NAME WORKING :" + nameCompDummy);
+            return "YOU CLICKED ON BUTTON COMPONENT : " + nameCompDummy;
         }
+
         render() {
-            return <WrappedComponent commonMethodHoc={this.commonsMethod}
-                                     {...this.props}/>
+
+            //destructuring applied to props and methods HOC
+            const props = {commonMethodHoc: this.commonsMethod,
+                // Pasa una función que acepta el nombre del componente cuando sea llamada
+                // WrappedComponent.name >> name proviene automáticamente de la definición
+                // de la función o clase del componente que estás envolviendo.
+                methodNameUsedHoc:()=> this.methodNameUsed(WrappedComponent.name),
+                ...this.props} as P & CommonMethodInjectedByHoc;
+
+
+            return <WrappedComponent {...props}/>
         }
     }
     return CommonMethod

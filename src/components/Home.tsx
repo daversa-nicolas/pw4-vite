@@ -16,7 +16,8 @@ class Home extends Component <Record<string, never>, HomeState>{
         this.state = {
             imageHangar1 : {
                 colorProps: "red",
-                nameImage: "brics-empire-gold-money-unit"
+                nameImage: "brics-empire-gold-money-unit",
+                nameImageTechno: "empire-kapustin-yar-retroingenierier-Vimanas"
             }
         }
 
@@ -28,8 +29,9 @@ class Home extends Component <Record<string, never>, HomeState>{
         return(
 
             <div>
-                <ImagesHangar colorProps={imageHangar1.colorProps} nameImage={imageHangar1.nameImage}/>
-
+                <ImagesHangar colorProps={imageHangar1.colorProps}
+                              nameImage={imageHangar1.nameImage}
+                              nameImageTechno={imageHangar1.nameImageTechno}/>
 
             </div>
         )

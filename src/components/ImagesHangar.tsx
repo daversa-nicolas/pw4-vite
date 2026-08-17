@@ -10,7 +10,7 @@ import vimanaRetroingenieringZoneS4 from "../assets/retroingeniering-zoneS4.jpg"
 export interface ImageHangarS {
     colorProps: string;
     nameImage: string;
-    nameImageTechno:string;
+    nameImageTechno: string;
 }
 
 function newTab(url: string) {

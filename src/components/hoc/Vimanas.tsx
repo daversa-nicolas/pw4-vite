@@ -1,23 +1,25 @@
 import React from 'react';
-import commonMethod from "./CommonMethod.tsx";
+import commonMethod, {type CommonMethodInjectedByHoc} from "./CommonMethod.tsx";
 
 interface VimanasOwnProps {
     nameComp: string;
 }
 
-class Vimanas extends React.Component <VimanasOwnProps> {
+
+type VimanasProps = VimanasOwnProps & CommonMethodInjectedByHoc;
+
+class Vimanas extends React.Component <VimanasProps>{
 
 
 
     render() {
 
-        // FROM PARENT PROPS - STATE  YING YANG
-        const {nameComp
-            } = this.props;
+        // FROM PARENT PROPS - STATE YING YANG
+        const {nameComp,commonMethodHoc}=this.props;
 
         return (
             <div>
-             <button >THIS IS Vimana BUTTON : {nameComp}</button>
+             <button onClick={commonMethodHoc}>THIS IS Vimana BUTTON : {nameComp}</button>
              <label>THIS IS VIMANAS STATE :</label>
             </div>
         );

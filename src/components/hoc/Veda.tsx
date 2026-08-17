@@ -1,6 +1,6 @@
-import React from 'react';
-import commonMethod from "./CommonMethod.tsx";
-
+import React from 'react'
+import commonMethod from "./CommonMethod.tsx"
+import type {CommonMethodInjectedByHoc} from "./CommonMethod.tsx"
 
 interface VedaOwnProps {
     nameComp: string;
@@ -8,20 +8,30 @@ interface VedaOwnProps {
     commonStateProp: {name: string};*/
 }
 
-class Veda extends React.Component <VedaOwnProps> {
+type VedaProps = VedaOwnProps & CommonMethodInjectedByHoc;
+/*
+
+interface VedaProps extends VedaOwnProps, CommonMethodInjectedByHoc{
+    //ALREADY DECLARED IN HOC COMPONENT
+    //CommonMethodHoc: () => void;
+}
+*/
+
+
+class Veda extends React.Component <VedaProps> {
 
     render () {
         // FROM PARENT PROPS - STATE  YING YANG
-        const {nameComp,
+        const {nameComp, commonMethodHoc
             } = this.props;
 
         return (
             <div>
-                <button >THIS IS VEDA BUTTON :{nameComp}</button>
+                <button onClick={commonMethodHoc}>THIS IS VEDA BUTTON :{nameComp}</button>
                 <label>THIS IS VEDA STATE : </label>
             </div>
         );
     }
-};
+}
 
 export default commonMethod(Veda);

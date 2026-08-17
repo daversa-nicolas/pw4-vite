@@ -1,18 +1,18 @@
 import React, {type ComponentType} from "react";
 
-interface CommonMethodOwnState {
-    nameComp: string;
-};
 
+export interface CommonMethodInjectedByHoc{
+    commonMethodHoc:() => void;
+}
 
-const commonMethod = <P extends CommonMethodOwnState>
-(WrappedComponent: ComponentType<P>) =>
-{    class CommonMethod extends React.Component<P, CommonMethodOwnState> {
+const commonMethod = <P extends object>
+(WrappedComponent: ComponentType<P & CommonMethodInjectedByHoc>):
+    ComponentType<P> => {
+    class CommonMethod extends React.Component<P> {
 
         state = {
             nameComp: "THIS IS INITIAL COMMON STATE",
-            commonMethodProp: () => {},
-      }
+        }
 
         // after render and before setState
         componentDidMount(){
@@ -21,7 +21,9 @@ const commonMethod = <P extends CommonMethodOwnState>
         }
 
         commonsMethod=()=>{
+
             console.log("THIS IS COMMON METHOD WORKING :");
+
             /*this.setState(
                 {
                     commonStateProp: {
@@ -30,6 +32,7 @@ const commonMethod = <P extends CommonMethodOwnState>
                     }
                 }
             )*/
+
         }
 
         outputName=()=>{

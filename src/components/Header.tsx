@@ -53,6 +53,12 @@ class Header extends Component {
                     </NavLink>
                     </div>
 
+                    <div>
+                    <NavLink className={eleBarr} to="/CommonRelegate">
+                        <button className="buttonSty">RENDER PROPS AND DATA FETCH</button>
+                    </NavLink>
+                    </div>
+
                 </nav>
 
             </div>

@@ -1,12 +1,11 @@
 import React, {type ComponentType} from "react";
 
-// to injection in childrens from HOC
+// to injection in childrens from HOC - decorator Hoc pour distinguer injected in childred props
 export interface CommonMethodInjectedByHoc{
-    commonMethodHoc:() => void;
-    methodNameUsedHoc: () => string;
-    currentClickedName: string;
 
-    handleComponentClick: () => void;
+    methodNameUsedHoc: () => string;
+    currentClickedNameHoc: string;
+    handleComponentClickHoc: () => void;
 }
 
 
@@ -22,28 +21,27 @@ const commonMethod = <P extends object>
         }
 
         // Cette méthode modifie l'état UNIQUEMENT lors de l'action utilisateur
-        handleComponentClick = (componentName: string): void => {
-            console.log("THIS OUTPUT HOC METHOD HAND COMPONENT CLICK NAME WORKING: " + componentName);
+        handleComponentClick = (componentNam: string): void => {
+            console.log("THIS OUTPUT HOC METHOD HAND COMPONENT CLICK NAME WORKING: " + componentNam);
 
             // Mise à jour de l'état : React va automatiquement réafficher les enfants
             this.setState({
                 commitCliked: true,
-                currentClickedName: componentName
+                currentClickedName: componentNam
             });
 
             console.log("THIS IS commit CLICKED BOOLEAN : " + this.state.commitCliked);
 
         };
 
-        commonsMethod=()=>{
+    /*    commonsMethod=()=>{
 
             console.log("THIS IS COMMON METHOD WORKING :");
 
-
-
-        }
+        }*/
 
         methodNameUsed=(nameCompDummy: string): string =>{
+
             console.log("THIS OUTPUT HOC METHOD NAME WORKING :" + nameCompDummy);
 
             return "YOU CLICKED ON BUTTON COMPONENT : " + nameCompDummy;
@@ -51,6 +49,7 @@ const commonMethod = <P extends object>
 
 
         componentDidUpdate(_prevProps: Readonly<P>, prevState: Readonly<{ commitCliked: boolean }>) {
+
             const wrapperName= WrappedComponent.name;
 
             console.log("THIS IS componentDidUpdate WORKING:" + wrapperName )
@@ -63,19 +62,21 @@ const commonMethod = <P extends object>
 
 
         render() {
+
+            // automatical name of component children
             const wrapperName = WrappedComponent.name || "Componente sin nombre";
             //destructuring applied to props and methods HOC
             // Injection des propriétés dynamiques from HOC to childrens
 
             const props = {
-                commonMethodHoc: this.commonsMethod,
+                // commonMethodHoc: this.commonsMethod,
                 // Pasa una función que acepta el nombre del componente cuando sea llamada
                 // WrappedComponent.name >> name proviene automáticamente de la definición
                 // de la función o clase del componente que estás envolviendo.
                 // PASSING VAL?UE OF STATE
                 methodNameUsedHoc: () => wrapperName,
-                currentClickedName: this.state.currentClickedName,
-                handleComponentClick:()=> this.handleComponentClick(wrapperName),
+                currentClickedNameHoc: this.state.currentClickedName,
+                handleComponentClickHoc:()=> this.handleComponentClick(wrapperName),
                 ...this.props
             } as P & CommonMethodInjectedByHoc;
 

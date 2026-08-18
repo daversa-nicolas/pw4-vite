@@ -22,16 +22,19 @@ class Veda extends React.Component <VedaProps> {
 
     render () {
         // FROM PARENT PROPS - STATE  YING YANG
-        const {nameComp, methodNameUsedHoc
-            } = this.props;
+        const {nameComp,
+            handleComponentClickHoc,
+            currentClickedNameHoc}
+            = this.props;
 
         return (
             <div>
                 <button onClick={()=>
                     {
-                        methodNameUsedHoc()
+                        handleComponentClickHoc();
                     }
                 }>THIS IS VEDA BUTTON :{nameComp}</button>
+                <label>THIS IS THE OUTPUT FROM PARENT PROPS : {currentClickedNameHoc}</label>
 
 
             </div>

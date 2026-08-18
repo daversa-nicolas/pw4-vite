@@ -37,14 +37,27 @@ const ImagesHangar = (props: ImageHangarS) =>{
 
                 </div>
                 <div style = {{fontSize: 15}}>
-                    <h4>Blockchain – <div> The Unit BRICS+ money </div>,
+                    <h4>Blockchain – <div><div style={{fontStyle:"bold", color:"goldenrod",
+                        textDecorationLine:"underline"}} onClick ={()=>
+                        newTab("https://www.youtube.com/watch?v=6z-LVu_yzqs")}>The Unit BRICS+ money
+                        </div>
+                        </div>,
                         multilatéral oriental extraterritorial golden-backed single money à
-                        dominante Renminbi Yuán à débacle dollar-sournois deux poids deux
+                        dominante
+                        <div style={{fontStyle:"bold", color:"grey",
+                            textDecorationLine:"underline"}} onClick ={()=>
+                            newTab("https://www.youtube.com/watch?v=ps--PCHyfdE")}>Renminbi Yuán
+                        </div>
+                        à débacle dollar-sournois deux poids deux
                         mesures-
                         ,annihilation sanctions wash. et pitoyable déclin arnaque
-                        nasa-pseudo-empire en pleine chute-, blamée, capitulée et dominée par la supérieure technologie des
-                        ancients antigravity par la majorité de la planète
-                        plurimillénaire universel éternel Empire BRISC+
+                        <div style={{fontStyle:"bold", color:"grey",
+                            textDecorationLine:"underline"}} onClick ={()=>
+                            newTab("https://www.presstv.co.uk/Detail/2026/08/17/774572/The-Empire-Hits-the-Wall")}>nasa-pseudo-empire
+                        </div>
+                        en pleine chute-, blamée, capitulée et dominée par la supérieure technologie des
+                        ancients VIMANAS antigravity par la majorité de la planète
+                        plurimillénaire universel éternel multilateral Empire BRISC+ d'Orient universel
                         <div>
                             L'or physique est l'arbitre impartiel et apolitique international de la richesse d'
                             un pays. Il garantit la monnaie par un
@@ -54,7 +67,7 @@ const ImagesHangar = (props: ImageHangarS) =>{
                             les <div style={{fontStyle:"bold", color:"grey",
                             textDecorationLine:"underline"}} onClick ={()=> newTab("https://www.youtube.com/watch?v=FFTCMfW32VA")}>
 
-                            BRICS + </div> ), annihilant toute transaction en dollar-frustré.
+                            BRICS + </div> ), annihilant toute transaction en dollar-frustré et en chute libre.
                             ---
                             International Monetary Economics, Michael Angelo Heilperin (Swiss University)
                         </div>

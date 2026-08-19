@@ -108,7 +108,14 @@ const ImagesHangar = (props: ImageHangarS) =>{
                     <a href="https://www.youtube.com/watch?v=dCyv8oEsgdQ" rel="noreferrer">
                         https://www.youtube.com/watch?v=dCyv8oEsgdQ
                     </a>
-
+                    ---
+                    Comment l'Empire Brics+ Chine va provoquer l'effondrement
+                    de l'IA nasa arnaque qui cherche par tout moyens douane,sanctions annihilé par The UNIT BRICS+ gold money, <div style={{fontStyle:"bold", color:"green",
+                        textDecorationLine:"underline"}} onClick ={()=>
+                        newTab("https://www.youtube.com/watch?v=vLmQ6SVmNx8")}>AI biaisée-censurée
+                    </div>,
+                    media corrompus,... de dire la mensogne sur la rèelle retroingeniere
+                    des VIMANAS-soucoups antigravitationnels en zone 51 et autres bases des la planetes
                 </div>
             </div>
         )

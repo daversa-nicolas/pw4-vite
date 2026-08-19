@@ -15,6 +15,7 @@ interface RukmaState {
 }
 
 class Rukma extends React.Component<RukmaProps,RukmaState> {
+
     constructor(props: RukmaProps) {
         super(props);
         this.state={
@@ -25,6 +26,7 @@ class Rukma extends React.Component<RukmaProps,RukmaState> {
     render() {
         //addName est une PROPRIETE D un TAGS cause par RENDER PROPS? TODO
         const { addName} = this.props;
+        console.log('RENDER RUKMA');
         //  name est un STATE qui a stockée Value string
         // "RUKMA_NAME" est stockée dans this.state.
         const { name} = this.state;
@@ -33,6 +35,8 @@ class Rukma extends React.Component<RukmaProps,RukmaState> {
             <div>
                 <button onClick={()=>addName(name)}>THIS IS RUKMA BUTTON</button>
             </div>
+
+
         );
     }
 }

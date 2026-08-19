@@ -1,15 +1,15 @@
 import React from 'react';
 
 
-export interface PushpakaProps {
-
+// TODO need export to parent ? see in execution
+interface PushpakaProps {
     // IN PROPS   LA FUNCTION EXPORT  VERS PARENT DEFINE IN PARENT
     // declaring this function
     // la valeur vient de name et stockée en this.state, donc name \
     // est un state
     addName: (name: string) => void;
 }
-export interface PushpakaState {
+interface PushpakaState {
     name: string;
 }
 

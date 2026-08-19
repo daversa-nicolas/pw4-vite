@@ -50,8 +50,8 @@ PropRenderPatternState> {
             x: event.clientX,
             y: event.clientY,
         })
-        console.log(event.clientX);
-        console.log(event.clientY);
+        //console.log(event.clientX);
+        //console.log(event.clientY);
     }
 
 

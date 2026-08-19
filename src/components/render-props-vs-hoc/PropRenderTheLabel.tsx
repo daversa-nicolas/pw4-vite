@@ -8,9 +8,10 @@ interface PropRenderTheLabelState {
 interface PropRenderTheLabelProps {
     render: (data: {
                  nameVimana: string
+                  addName: (name: string) => void;
              }) => React.JSX.Element;
 }
-
+// PARENT (1) COMMONRELEGATE
 class PropRenderTheLabel extends React.Component <PropRenderTheLabelProps, PropRenderTheLabelState>{
 
 // initialisation need to have empty value
@@ -19,11 +20,15 @@ class PropRenderTheLabel extends React.Component <PropRenderTheLabelProps, PropR
     };
 
 // WITH DUMMY ARGUMENT FONTION
-    addName=(nameDummy:string)=>{
-        console.log(nameDummy);
-        this.setState({
-            nameVimana: "YOU CLIKED ON : "+ nameDummy
-        })
+    addName=(nameDummy: string)=>{
+        console.log( "PASSING IN THIS FUNCTION THE VALUE : "+nameDummy);
+        if (nameDummy.startsWith("YOU CLICKED ON : ")) {
+            return;
+        }else {
+            this.setState({
+                nameVimana: "YOU CLIKED ON : " + nameDummy
+            })
+        }
     }
 
 
@@ -31,7 +36,8 @@ class PropRenderTheLabel extends React.Component <PropRenderTheLabelProps, PropR
         const {nameVimana} = this.state;
         return (
             <div style={{color: "red"}}>
-                {this.props.render({nameVimana})}
+                {/*  On envoie aussi this.addName au parent (1)*/}
+                {this.props.render({ nameVimana, addName: this.addName })}
             </div>
         );
     }

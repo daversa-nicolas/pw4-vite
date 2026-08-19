@@ -1,29 +1,36 @@
 import React from 'react';
-import  type {JSX} from "react";
 
-interface PropRenderTheLabelProps {
-    render: (
-        nameVimana: string
-    ) => JSX.Element;
+// Définition de la structure du State
+interface PropRenderTheLabelState {
+    nameVimana: string;
 }
 
-class PropRenderTheLabel extends React.Component <PropRenderTheLabelProps>{
+interface PropRenderTheLabelProps {
+    render: (data: {
+                 nameVimana: string
+             }) => React.JSX.Element;
+}
 
+class PropRenderTheLabel extends React.Component <PropRenderTheLabelProps, PropRenderTheLabelState>{
 
+// initialisation need to have empty value
+    state: PropRenderTheLabelState = {
+        nameVimana: ""
+    };
 
 // WITH DUMMY ARGUMENT FONTION
-    addName=(nameVimana:string)=>{
-        console.log(nameVimana);
-        this.setState=({
-            nameVimana: "YOU CLIKED ON : "+ nameVimana;
+    addName=(nameDummy:string)=>{
+        console.log(nameDummy);
+        this.setState({
+            nameVimana: "YOU CLIKED ON : "+ nameDummy
         })
     }
 
 
     render() {
-        const {nameVimana} = this.props;
+        const {nameVimana} = this.state;
         return (
-            <div style={{color: "red"}} onChange={this.addName}>
+            <div style={{color: "red"}}>
                 {this.props.render({nameVimana})}
             </div>
         );

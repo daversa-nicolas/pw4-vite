@@ -1,30 +1,54 @@
 .navBarr1 {
-  background-color: gold;
-  padding: 80px;
-  margin: 5px;
-  display: inline-flex;
-  flex-direction: row;
+  background: goldenrod;
+  display: grid;
+  grid-template-rows: auto;
+  /*grid-template-columns: max-content auto max-content;
+  CORRECTION : Remplacer 'auto' par '1fr' pour verrouiller la largeur */
+  grid-template-columns: max-content 1fr max-content;
+  grid-template-areas: "logo menus toggler";
+  justify-items: stretch;
+  align-items: stretch;
+  column-gap: 20px;
+  padding: 30px;
+  /* On met un padding raisonnable par défaut */
+  padding: 100px;
   width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 
   .eleBarr1 {
-    margin: 15px;
+    margin: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: darkgoldenrod;
-    padding: 20px;
-    color: darkgoldenrod;
+    padding: 15px;
+    color: darkgrey;
     font-family: Charter;
 
-     .buttonSty{
+    /* On force l'élément flex à accepter de se raccourcir */
+    min-width: 0;
+    width: auto;
+    box-sizing: border-box;
+
+    .buttonSty{
+       font-family: Courier;
+       font-size: 19px;
        display: flex;
        flex-wrap: wrap;
        background-color: burlywood;
        color: black;
        border-radius: 10px;
-       padding: 25px;
-       margin: 10px;
-     }
+
+       /* Le problème est ici : réduisez cette valeur énorme sur petit écran */
+      padding: clamp(10px, 2vw, 25px);
+      margin: 10px;
+
+      /* CORRECTION ESSENTIELLE : Force le bouton à inclure le padding dans son calcul de taille */
+      box-sizing: border-box;
+      max-width: 100%;
+
+    }
 
   }
 }

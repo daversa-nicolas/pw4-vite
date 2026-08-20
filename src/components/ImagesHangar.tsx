@@ -110,12 +110,16 @@ const ImagesHangar = (props: ImageHangarS) =>{
                     </a>
                     ---
                     Comment l'Empire Brics+ Chine va provoquer l'effondrement
-                    de l'IA nasa arnaque qui cherche par tout moyens douane,sanctions annihilé par The UNIT BRICS+ gold money, <div style={{fontStyle:"bold", color:"green",
+                    de l'IA nasa arnaque qui cherche par tout moyens douane,sanctions annihilé par
+                    The UNIT BRICS+ gold-backed money, <div style={{fontStyle:"bold", color:"green",
                         textDecorationLine:"underline"}} onClick ={()=>
-                        newTab("https://www.youtube.com/watch?v=vLmQ6SVmNx8")}>AI biaisée-censurée
-                    </div>,
-                    media corrompus,... de dire la mensogne sur la rèelle retroingeniere
-                    des VIMANAS-soucoups antigravitationnels en zone 51 et autres bases des la planetes
+                        newTab("https://www.youtube.com/watch?v=vLmQ6SVmNx8")}>AI biaisée-mensongère
+                    </div>,suppression arbitraire de compte par entreprise xénophobe youtube,linkedin et
+                    leur acolytés, medias corrompus,... de dire la mensogne sur la rèelle retroingeniere
+                    des VIMANAS-soucoups antigravitationnels en zone 51 et principalement dans bases proche désert Shi Dadui
+                    十大队 (40°46'42.0"N 89°16'54.2"E), Kapustin YAR (Russie), plurimillenaire connaissance et retroingenierie des
+                    bases Vimanas antigravitationnels en temples en Inde-Pakistan(Empire Moghol) et Iran-Turkish(Ottoman-Irano Sefevide
+                    Brisc+ Empire).
                 </div>
             </div>
         )

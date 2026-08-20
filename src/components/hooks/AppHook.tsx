@@ -2,11 +2,11 @@
 //import FunctionState from "./FunctionState";
 //import ClasseState from "./ClasseState.tsx";
 
-
 //CHILDREN (1) FUNCTIONSTATE.TSX
 import FunctionState from "./FunctionState.tsx";
+import AccountUseEffect from "./AccountUseEffect.tsx";
 
-export function useApp () {
+export default function AppHook() {
 
 
     return (
@@ -14,7 +14,8 @@ export function useApp () {
     <div>
 
         <FunctionState/>
-
+        <div style={{padding: "20px", color:"gold", backgroundColor:"brown"}}>NEXT SAMPLE </div>
+        <AccountUseEffect/>
     </div>
     )
 }

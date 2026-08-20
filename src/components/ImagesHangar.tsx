@@ -116,9 +116,9 @@ const ImagesHangar = (props: ImageHangarS) =>{
                         newTab("https://www.youtube.com/watch?v=vLmQ6SVmNx8")}>AI biaisée-mensongère
                     </div>,suppression arbitraire de compte par entreprise xénophobe youtube,linkedin et
                     leur acolytés, medias corrompus,... de dire la mensogne sur la rèelle retroingeniere
-                    des VIMANAS-soucoups antigravitationnels en zone 51 et principalement dans bases proche désert Shi Dadui
+                    des anciens VIMANAS-soucoups antigravitationnels en zone 51 et principalement dans bases proche désert Shi Dadui
                     十大队 (40°46'42.0"N 89°16'54.2"E), Kapustin YAR (Russie), plurimillenaire connaissance et retroingenierie des
-                    bases Vimanas antigravitationnels en temples en Inde-Pakistan(Empire Moghol) et Iran-Turkish(Ottoman-Irano Sefevide
+                    bases anciens Vimanas antigravitationnels en temples en Inde-Pakistan(Empire Moghol) et Iran-Turkish(Ottoman-Irano Sefevide
                     Brisc+ Empire).
                 </div>
             </div>

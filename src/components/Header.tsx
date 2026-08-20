@@ -59,6 +59,12 @@ class Header extends Component {
                     </NavLink>
                     </div>
 
+                    <div>
+                    <NavLink className={eleBarr} to="/AppHook">
+                        <button className="buttonSty">HOOK IN FUNCTIONAL COMPONENT - USESTATE USEFFECT</button>
+                    </NavLink>
+                    </div>
+
                 </nav>
 
             </div>

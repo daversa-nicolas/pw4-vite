@@ -5,8 +5,6 @@ function FunctionState() {
 
     const [count, setCount] = useState(2);
 
-    console.log("COUNT : " + count);
-
     // THIS IS VERSION NON FUNCTIONAl AVEC ASYNCRONIE
     /*
     const sumClick = ()  => {
@@ -20,7 +18,7 @@ function FunctionState() {
 
     const sumClick = () => {
         setCount(prevCount => {
-            const nextCount = prevCount + 1;
+            const nextCount = prevCount + 2;
             console.log("COUNT INCREASING : " + nextCount);
             // Affiche de Value 3 in console syncrone
             return nextCount;

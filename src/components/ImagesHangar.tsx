@@ -110,7 +110,7 @@ const ImagesHangar = (props: ImageHangarS) =>{
                     </a>
                     ---
                     Comment l'Empire Brics+ Chine va provoquer l'effondrement
-                    de l'IA nasa arnaque qui cherche par tout moyens douane,sanctions annihilé par
+                    de l'IA nasa arnaque qui cherche par tout moyens douane,sanctions annihilées par
                     The UNIT BRICS+ gold-backed money, <div style={{fontStyle:"bold", color:"green",
                         textDecorationLine:"underline"}} onClick ={()=>
                         newTab("https://www.youtube.com/watch?v=vLmQ6SVmNx8")}>AI biaisée-mensongère
@@ -120,9 +120,9 @@ const ImagesHangar = (props: ImageHangarS) =>{
                         textDecorationLine:"underline"}} onClick ={()=>
                         newTab("https://www.youtube.com/watch?v=ypHNy2-JC-Q")}>VIMANAS-soucoups antigravitationnels
                     </div> en zone 51 et principalement dans bases proche désert Shi Dadui
-                    十大队 (40°46'42.0"N 89°16'54.2"E), Kapustin YAR (Russie), plurimillenaire connaissance et retroingenierie des
-                    bases éternels Vimanas antigravitationnels en temples en Inde-Pakistan(Empire Moghol) et Iran-Turkish(Ottoman-Irano Sefevide
-                    Brisc+ Empire).
+                    十大队 (40°46'42.0"N 89°16'54.2"E) Brics +, Kapustin YAR (Russie Brics +), plurimillenaire connaissance et retroingenierie des
+                    bases éternels Vimanas antigravitationnels en temples en Inde-Pakistan(Empire Moghol Brics +),Iran-Turkish(Irano Sefevide
+                    Brisc+ Empire) et pyramides Egyptiennes Machu Picchu (Perù-Chile-Venezuela-Brazil Sud Afrik Brisc+ Empire).
                 </div>
             </div>
         )
